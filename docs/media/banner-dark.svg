@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#24201C"/>
+      <stop offset="1" stop-color="#3A2E22"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="340" rx="28" fill="url(#bg)"/>
+  <!-- plate, fork and knife -->
+  <g transform="translate(250 170)">
+    <circle r="112" fill="#3A332C"/>
+    <circle r="84" fill="none" stroke="#E4572E" stroke-width="10"/>
+    <circle r="56" fill="#3B8B5A"/>
+    <circle cx="-14" cy="-12" r="14" fill="#F2A541"/>
+    <circle cx="18" cy="10" r="11" fill="#E4572E"/>
+    <circle cx="-6" cy="24" r="8" fill="#F2A541"/>
+    <rect x="-162" y="-80" width="10" height="160" rx="5" fill="#FFF8EE"/>
+    <rect x="-176" y="-80" width="6" height="56" rx="3" fill="#FFF8EE"/>
+    <rect x="-145" y="-80" width="6" height="56" rx="3" fill="#FFF8EE"/>
+    <rect x="146" y="-80" width="22" height="96" rx="11" fill="#FFF8EE"/><rect x="152" y="0" width="10" height="80" rx="5" fill="#FFF8EE"/>
+  </g>
+  <!-- title -->
+  <text x="470" y="160" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="84" font-weight="800" fill="#FFF8EE">Meal Planner</text>
+  <text x="474" y="210" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="30" font-weight="500" fill="#C9B8A3">for Claude</text>
+  <!-- the week: seven days -->
+  <g font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+    <rect x="474" y="244" width="62" height="40" rx="20" fill="#E4572E"/><text x="505" y="271">1</text>
+    <rect x="546" y="244" width="62" height="40" rx="20" fill="#F2A541"/><text x="577" y="271">2</text>
+    <rect x="618" y="244" width="62" height="40" rx="20" fill="#3B8B5A"/><text x="649" y="271">3</text>
+    <rect x="690" y="244" width="62" height="40" rx="20" fill="#E4572E"/><text x="721" y="271">4</text>
+    <rect x="762" y="244" width="62" height="40" rx="20" fill="#F2A541"/><text x="793" y="271">5</text>
+    <rect x="834" y="244" width="62" height="40" rx="20" fill="#3B8B5A"/><text x="865" y="271">6</text>
+    <rect x="906" y="244" width="62" height="40" rx="20" fill="#E4572E"/><text x="937" y="271">7</text>
+  </g>
+</svg>
