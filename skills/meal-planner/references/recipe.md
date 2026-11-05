@@ -69,6 +69,7 @@ Several recipes at once: handle them one by one (show, approve, create), unless 
 *Prep ahead: make the pastry the day before and keep it in the fridge.*
 ```
 
+- Write the body, including the labels "Seasoning", "Prep ahead", "Tip", in the user's language ("*Assaisonnement : …*", "*À anticiper : …*"). When reading a dish, recognise these labels in any language.
 - Short steps, one action each, with times and temperatures.
 - A "*Prep ahead: …*" line for anything to do in advance (thawing, soaking, marinating, dough, resting). The weekly plan and the daily brief use it.
 - If the profile lists an appliance that clearly helps (for example a food processor for pastry), add a short "*Tip: …*" line.

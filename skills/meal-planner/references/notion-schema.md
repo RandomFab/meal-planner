@@ -13,7 +13,7 @@ The user's workspace is a copy of the Meal Planner template: a root page "Meal P
 3. If that block holds the five database addresses, use them. Fetch one; if it fails, go to step 4.
 4. Otherwise, search for "Meal Planner" and open the root page. It lists the five databases. Note the data source address (`collection://…`) of each one.
    - Nothing found: tell the user to duplicate the template (link in Start here and in the README) and share it with Claude. Stop.
-   - Several copies found: ask which one to use.
+   - Several copies found: use the one whose Setup date is set; if none or several are, ask which one to use.
 5. Check each database has the properties listed in section 3. If one is missing, tell the user which and stop: never work on a broken template.
 6. Propose to write the addresses into the "For Claude, do not edit" block (setup does this). Until then, keep them for the conversation.
 

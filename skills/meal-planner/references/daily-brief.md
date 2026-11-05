@@ -13,7 +13,7 @@ The brief only reads. It informs and proposes; it never writes to Notion.
 
 1. **Today's date**, from the context or a tool, in the user's time zone. Never guess it.
 2. **Menu**: lines for yesterday, today and tomorrow.
-3. **Dishes of today**: Total time, and the "*Prep ahead: …*" line of the page body.
+3. **Dishes of today**: Total time, and the Prep ahead line of the page body (in the user's language, `recipe.md` section 5).
 4. **Menu lines of today and tomorrow**: Prep ahead, Servings, Extra for lunchbox, Status.
 5. **Yesterday**: lines still Planned, or Cooked without Feedback.
 6. **Stock**, only if the module is on: Dish ingredients of today's and tomorrow's dishes, and the Level of their products.
