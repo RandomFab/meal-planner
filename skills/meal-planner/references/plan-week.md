@@ -10,7 +10,7 @@ The menu covers 7 days, starting on the profile's "First day of the menu". By de
 
 1. **Household profile**: every section. Journal lines with an end date ("until …") apply only until that date.
 2. **Dishes**: all except Banned. Note Status, Type, Meal, Total time, Season, Main protein, Tags, Ingredients filled.
-3. **Menu, last 3 weeks**: what was eaten, feedback, and lines Postponed or Skipped whose dish should come back soon.
+3. **Menu, last 3 weeks**: what was eaten, feedback, and dishes that should come back soon: lines Postponed or Skipped, and Notes "Postponed: <dish>".
 4. **Products**, only if the stock module is on: products Opened or Low, to use first.
 5. **Dish ingredients**: which dishes use the products to use first.
 
