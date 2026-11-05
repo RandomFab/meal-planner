@@ -25,10 +25,10 @@
   <!-- the week: seven days -->
   <g font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">
     <rect x="474" y="244" width="62" height="40" rx="20" fill="#E4572E"/><text x="505" y="271">1</text>
-    <rect x="546" y="244" width="62" height="40" rx="20" fill="#F2A541"/><text fill="#2B2B2B" x="577" y="271">2</text>
+    <rect x="546" y="244" width="62" height="40" rx="20" fill="#F2A541"/><text x="577" y="271">2</text>
     <rect x="618" y="244" width="62" height="40" rx="20" fill="#3B8B5A"/><text x="649" y="271">3</text>
     <rect x="690" y="244" width="62" height="40" rx="20" fill="#E4572E"/><text x="721" y="271">4</text>
-    <rect x="762" y="244" width="62" height="40" rx="20" fill="#F2A541"/><text fill="#2B2B2B" x="793" y="271">5</text>
+    <rect x="762" y="244" width="62" height="40" rx="20" fill="#F2A541"/><text x="793" y="271">5</text>
     <rect x="834" y="244" width="62" height="40" rx="20" fill="#3B8B5A"/><text x="865" y="271">6</text>
     <rect x="906" y="244" width="62" height="40" rx="20" fill="#E4572E"/><text x="937" y="271">7</text>
   </g>
