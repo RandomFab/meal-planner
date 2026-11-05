@@ -1,5 +1,5 @@
 <p align="right">
-  <a href="README.fr.md"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Lire%20en%20fran%C3%A7ais-2F4858?style=for-the-badge" alt="Lire en français"></a>
+  <a href="README.fr.md"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Lire%20en%20fran%C3%A7ais-7A5AE0?style=for-the-badge" alt="Lire en français"></a>
 </p>
 
 <p align="center">
