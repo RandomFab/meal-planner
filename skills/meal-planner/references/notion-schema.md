@@ -126,7 +126,13 @@ Exact names. Option lists are complete: never write another value.
 
 ## 4. Reading
 
-- Query databases with SQL on the data source when the connector allows it; otherwise fetch the views.
+- **Read without SQL first.** Outside Notion's Business and Enterprise plans, SQL queries share a small workspace quota, and a query cannot join two databases. Use, in this order:
+  1. **view mode** on a template view whose filter fits (Today, Next 7 days, At home, the store views of Shopping list): no quota;
+  2. **rows mode** on one data source, with a structured filter (`relation_contains`, `date_is_within`, `enum_is`…) and a sort;
+  3. **SQL** only when neither fits, on one data source per query.
+- Combine databases yourself: read each one, then match the rows by page URL. Never write a query that joins two data sources.
+- Read each database once per task and reuse the result. Do not read it again for every dish or product.
+- If a read is refused because of the plan or the quota, switch to rows or view mode without telling the user. Mention it only if nothing works, and then never write anything to Notion from partial data.
 - **Rollups and formulas are not readable through the API** (Last cooked, Times cooked, Ingredients, Product name, Unit, Label). Compute instead:
   - ingredients of a dish: Dish ingredients where Dish contains the dish, joined to Products (Name, Recipe unit);
   - last time a dish was eaten: latest Menu Date where Dish contains it and Status is Cooked or Leftovers.
