@@ -75,7 +75,7 @@ Chaque semaine profite de la précédente : ce que vous avez aimé revient, ce q
 
 ### 1️⃣ Copiez le modèle Notion
 
-Ouvrez le [modèle Meal Planner](https://example.com/notion-template) <!-- TODO : vrai lien du modèle --> et cliquez sur **Dupliquer**, en haut à droite. Vous avez maintenant votre propre copie, avec quelques plats d'exemple pour démarrer.
+Ouvrez le [modèle Meal Planner](https://garrulous-amount-bc1.notion.site/Meal-Planner-Template-40fd46912afe81f2b234f62e9acec937) et cliquez sur **Dupliquer**, en haut à droite. Vous avez maintenant votre propre copie, avec quelques plats d'exemple pour démarrer.
 
 ### 2️⃣ Connectez Notion à Claude
 

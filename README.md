@@ -75,7 +75,7 @@ Each week builds on the last: what you loved comes back, what you didn't shows u
 
 ### 1️⃣ Copy the Notion template
 
-Open the [Meal Planner template](https://example.com/notion-template) <!-- TODO: real template link --> and click **Duplicate**, top right. You now have your own copy, with a few example dishes to start with.
+Open the [Meal Planner template](https://garrulous-amount-bc1.notion.site/Meal-Planner-Template-40fd46912afe81f2b234f62e9acec937) and click **Duplicate**, top right. You now have your own copy, with a few example dishes to start with.
 
 ### 2️⃣ Connect Notion to Claude
 
