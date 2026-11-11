@@ -1,7 +1,7 @@
 {
   "name": "meal-planner",
   "displayName": "Meal Planner",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Plans your household's meals in your own Notion: weekly menu, recipes from a photo or a link, shopping list by store, daily brief, and a planner that learns what you like.",
   "author": { "name": "Fabien Bardouil", "url": "https://fabienbardouil.com" },
   "homepage": "https://github.com/RandomFab/meal-planner",

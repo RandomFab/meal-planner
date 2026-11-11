@@ -49,14 +49,16 @@ Everything else keeps its default (Variety, Shopping, Recipes, Modules). Mention
 
 1. **Show the summary**: one line per section, in the user's language, defaults marked. End with the disclaimer if there is a strict restriction, and "Shall I save it?"
 2. **After the yes**, in this order:
-   1. **Profile page**: for each section, replace the values the user gave and remove "(default)". Keep headings, setting names and italic sentences exactly. Values follow the user's language.
+   1. **Profile page**: for each section, replace the values the user gave and remove "(default)". Keep headings, setting names and italic sentences exactly, in English. **Write the values in the user's language, never translated into English**: a French speaker gets "Cacahuètes", "Cuisine italienne", "Vendredi soir : pizza", not "Peanuts", "Italian cuisine".
    2. **Stores**: add each store as an option of Store, with the same name in Products and Shopping list. Create one Shopping list view per store, built like the "Supermarket" view (list, filter Store = the store and Bought unticked, grouped by Aisle). If the user does not shop at a "Supermarket", rename that view and change its filter to their main store.
    3. **Products' Store**: set every product to the right store, following the profile section "Stores" (one store: all products).
    4. **Staples**: tick Staple on the products the profile lists as staples.
    5. **"For Claude, do not edit" block**: Setup date (today) and the five data source addresses.
-3. **Confirm** in one line: "Your profile is saved. You can change anything by telling me, or directly on the Household profile page."
+3. **Confirm** in one line: "Your profile is saved. You can change anything by telling me, or directly on the Household profile page." Then, in the same message, go on to section 5.
 
 Setup is the only time you may create select options (Store only).
+
+**After saving, sections 5 to 8 always run, in this order, one short message each.** Skip none, even when the user has already answered part of them: each message ends with its own question.
 
 ## 5. Sample dishes
 
@@ -64,10 +66,10 @@ The template comes with 12 sample dishes, Status To try, Added from Suggested by
 
 Tomato and mozzarella pasta salad · Lentil and carrot stew · Homemade ham pizza · Roast chicken thighs and vegetables · Chickpea and spinach curry · Leek quiche · Salmon, rice and green beans · Mushroom risotto · Butternut soup · Bean chili · Creamy mushroom pasta · Omelette and green salad
 
-1. **Strict restrictions first**: every sample dish that contains something in "Never" gets Status Banned. Say which.
-2. **Ask**: "Keep the other sample dishes to start, or remove them?" [keep]
+1. **Strict restrictions first**: every sample dish that contains something in "Never" gets Status Banned. Say which, or say that none does.
+2. **Always ask**, never decide for the user: "Keep the other sample dishes to start, or remove them?" [keep]. If the user's language is not English, add in the same question: "Shall I translate their names and steps into <language>?" [yes]
 3. **Remove**: move those dish pages and their Dish ingredients lines to the Notion trash. This is the only deletion allowed, only for these 12 dishes, only during setup, only after the yes. Products stay: they are useful for your own recipes.
-4. **User's language is not English**: offer to translate the names and steps of the kept dishes.
+4. **Translate**: if the user agreed, rename the kept dishes and rewrite their steps in the user's language. Product names follow too.
 
 ## 6. First dishes
 
@@ -82,11 +84,11 @@ Then: "Shall we start with the quick list? Name 5 to 10 dishes you often make." 
 
 ## 7. First menu
 
-"Shall I propose your first week?" [yes] Follow `plan-week.md`. A short history is normal: say that the menus get better with feedback.
+Its own message, or the last line of the previous one, never buried in a paragraph: "Shall I propose your first week, from <first day of the next menu, with its date>?" [yes] Follow `plan-week.md`. A short history is normal: say that the menus get better with feedback.
 
 ## 8. To finish
 
-Show in the user's language:
+Once the first menu is saved or declined, show in the user's language:
 
 - Five sentences to try: "What's for dinner?", "Make the shopping list", "We're eating out on Thursday", "The curry was great 👍", a photo of a recipe.
 - Where things are: the Today view of Menu on the phone, one Shopping list view per store.
@@ -122,6 +124,8 @@ Without scheduled tasks, the user can simply ask "what's for dinner?" each day.
 ## 11. Never
 
 - Never write the profile before the summary is approved.
+- Never write profile values in English for a user who speaks another language.
+- Never end the setup without asking about the sample dishes and offering the first week.
 - Never ask more than 4 questions in one message.
 - Never delete anything, except the sample dishes the user asked to remove during setup.
 - Never change the headings, setting names or italic sentences of the profile page.
