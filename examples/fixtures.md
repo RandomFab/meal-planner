@@ -4,6 +4,18 @@ Fictional starting states for `evals/cases.md`. No real person, store or habit.
 
 Each state lives in a Notion workspace used only for tests, so that no other Meal Planner copy can be found. "D" is the day the test is run.
 
+## Run order
+
+The states build on each other, and F3's menu is dated from D, so they are prepared on the test day, in this order:
+
+1. **F1**: B1 without the skill, then B1 with the skill. Then set the profile to exactly the F2 values.
+2. **F2**: B2 to B4, G1 to G5, G8. Undo what each run wrote before the next one.
+3. **F3**: add the Shepherd's pie and the week's menu. B5 to B8, G7, G9, G10.
+4. **F5**: turn stock on, add the shopping list and levels. B10.
+5. **F4**: remove every dish. B9.
+6. **F0**: move the Meal Planner page to the trash. G6. Restore it afterwards.
+7. Triggering cases (T1 to T7) can run on any state.
+
 ## F0 Nothing
 
 Notion connected to the test workspace, no Meal Planner page in it.
