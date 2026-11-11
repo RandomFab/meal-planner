@@ -37,7 +37,8 @@ F1 after setup, with this profile (sample dishes kept):
 | Never | Peanuts (Lou, allergy) |
 | Dislikes | Brussels sprouts |
 | Likes | Italian, curries, soups in winter |
-| Time | Weekday dinner 40 min, weekend 90 min |
+| Protein habits | Meat or fish 3 times a week |
+| Time | Weekday lunch 20 min (default), weekday dinner 40 min, weekend 90 min |
 | Rituals | Pizza on Friday evening |
 | Modules | Shopping list on, stock tracking off, daily brief off |
 
