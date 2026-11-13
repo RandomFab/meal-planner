@@ -120,7 +120,7 @@ Claude vous propose une tâche avec son nom, son horaire et ses instructions. V�
 <summary>Vous utilisez Claude Code ?</summary>
 <br>
 
-Lancez `/plugin install meal-planner@claude-plugins` <!-- TODO : confirmer le nom du catalogue -->. Détails dans [docs/developers.md](docs/developers.md) (en anglais).
+Lancez `/plugin marketplace add RandomFab/claude-plugins`, puis `/plugin install meal-planner@claude-plugins`. Détails dans [docs/developers.md](docs/developers.md) (en anglais).
 </details>
 
 ## Premier essai
@@ -138,6 +138,19 @@ Prépare les repas de la semaine prochaine
 ```
 
 Vous recevez un menu à relire. Rien n'est écrit dans Notion tant que vous n'avez pas dit que c'est bon.
+
+## Ajoutez vos recettes
+
+Le modèle contient quelques plats d'exemple. Ajoutez les vôtres de la façon la plus rapide pour vous :
+
+| Comment | Dites ou envoyez | Ce que vous obtenez |
+| --- | --- | --- |
+| ⚡ Une liste rapide | « On fait souvent : carbonara, chili, quiche » | Les plats, avec leur nom seulement. Ils peuvent entrer dans un menu tout de suite |
+| 🎙️ La dictée | Lisez une recette à voix haute avec la saisie vocale de votre téléphone | Une fiche recette complète |
+| 📸 Une photo | Une page de livre, une fiche écrite à la main, une capture d'écran | Une fiche recette complète |
+| 🔗 Un lien | L'adresse d'une page de recette | Une fiche recette complète |
+
+Un plat ajouté avec son nom seulement suffit pour les menus. Quand il faut l'acheter, Claude demande ses ingrédients. Il ne les invente jamais.
 
 ## Au quotidien
 

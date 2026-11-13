@@ -1,0 +1,62 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Project structure
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, re, sys
+          errors = []
+          root = pathlib.Path(".")
+          plugin = json.loads((root / ".claude-plugin/plugin.json").read_text(encoding="utf-8"))
+          version = plugin.get("version", "")
+          if not re.fullmatch(r"\d+\.\d+\.\d+(-[0-9A-Za-z.]+)?", version):
+              errors.append(f"plugin.json version is not semver: {version!r}")
+          for f in ["README.md", "README.fr.md", "docs/developers.md", "docs/media/banner-light.svg",
+                    "docs/media/banner-dark.svg", "CHANGELOG.md", "LICENSE"]:
+              if not (root / f).is_file():
+                  errors.append(f"missing {f}")
+          skills = [d for d in (root / "skills").iterdir() if d.is_dir()]
+          if not skills:
+              errors.append("no skill in skills/")
+          for d in skills:
+              md = d / "SKILL.md"
+              if not md.is_file():
+                  errors.append(f"missing {md}"); continue
+              text = md.read_text(encoding="utf-8")
+              m = re.match(r"---\n(.*?)\n---\n", text, re.S)
+              if not m:
+                  errors.append(f"{md}: no frontmatter"); continue
+              front = dict(l.split(":", 1) for l in m.group(1).splitlines() if ":" in l)
+              if front.get("name", "").strip() != d.name:
+                  errors.append(f"{md}: name must be {d.name!r}")
+              if not front.get("description", "").strip():
+                  errors.append(f"{md}: description is empty")
+          changelog = (root / "CHANGELOG.md").read_text(encoding="utf-8") if (root / "CHANGELOG.md").is_file() else ""
+          if f"## [{version}]" not in changelog:
+              errors.append(f"CHANGELOG.md has no section for {version}")
+          for p in root.rglob("*"):
+              if ".git" in p.parts or not p.is_file():
+                  continue
+              if p.name in {".DS_Store", "Thumbs.db", "desktop.ini"}:
+                  errors.append(f"system file committed: {p}")
+              if p.stat().st_size >= 5 * 1024 * 1024:
+                  errors.append(f"file of 5 MiB or more: {p}")
+          print("\n".join(errors) or "All checks passed")
+          sys.exit(1 if errors else 0)
+          PY
+
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

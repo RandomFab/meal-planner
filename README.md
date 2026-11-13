@@ -120,7 +120,7 @@ Claude proposes a task with its name, time and instructions. Check it, then clic
 <summary>Using Claude Code instead?</summary>
 <br>
 
-Run `/plugin install meal-planner@claude-plugins` <!-- TODO: confirm marketplace name -->. Details in [docs/developers.md](docs/developers.md).
+Run `/plugin marketplace add RandomFab/claude-plugins`, then `/plugin install meal-planner@claude-plugins`. Details in [docs/developers.md](docs/developers.md).
 </details>
 
 ## Your first try
@@ -138,6 +138,19 @@ Plan next week's meals
 ```
 
 You get a menu to review. Nothing is written to Notion until you say it's fine.
+
+## Add your recipes
+
+The template comes with a few example dishes. Add your own in whichever way is quickest:
+
+| How | Say or send | What you get |
+| --- | --- | --- |
+| ⚡ A quick list | "We often make carbonara, chili, quiche" | The dishes, by name only. They can go in a menu straight away |
+| 🎙️ Dictation | Read a recipe aloud with your phone's voice input | A full recipe card |
+| 📸 A photo | A cookbook page, a handwritten card, a screenshot | A full recipe card |
+| 🔗 A link | The address of a recipe page | A full recipe card |
+
+A dish added by name only is enough for menus. When it's needed for a shopping list, Claude asks for its ingredients. It never makes them up.
 
 ## Everyday use
 
