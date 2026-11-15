@@ -5,6 +5,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions: [Sem
 
 ## [Unreleased]
 
+### Changed
+
+- The shopping list is now computed by Notion and always up to date: change a dish in the menu and the list follows. It covers the next 7 days and says which dish each product is for.
+- What is at home is counted, not guessed: it goes up when you press Bought in the store and down when a meal is eaten. Tell Claude "3 steaks left" to correct it.
+- Basics you don't count (oil, spices, butter…) go on the list only when you say they are running low.
+- Template 2.0: the Shopping list database is replaced by a Shopping list page; Products gets the stock and shopping properties. Duplicate the new template.
+
+### Removed
+
+- The stock tracking module: stock is now part of the shopping list.
+
 ## [1.0.0-beta.1] - 2026-11-11
 
 First beta, for the first testers.

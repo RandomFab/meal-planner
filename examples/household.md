@@ -15,7 +15,7 @@ What the **Household profile** page holds after setup, for this fictional househ
 | Time | Weekday lunch 20 min (default), weekday dinner 40 min, weekend 90 min |
 | Equipment | Oven, hob (default) |
 | Rituals | Friday dinner: pizza |
-| Modules | Shopping list on, stock tracking off, daily brief off |
+| Modules | Shopping list on, daily brief off |
 
 ## The setup, in short
 

@@ -1,101 +1,82 @@
 # Shopping list
 
-Contents: 1. Which week · 2. Last week's leftovers · 3. Dishes without ingredients · 4. Needs · 5. Packs to buy · 6. What is already at home · 7. Staples and weekly extras · 8. Showing the list · 9. Writing to Notion · 10. Adding an item · 11. Never
+Contents: 1. How the list works · 2. Dishes without ingredients · 3. Showing the list · 4. Adding an item · 5. Weekly extras and staples · 6. At the store · 7. Never
 
 Only if the profile's Shopping list module is on. Otherwise say so and offer to turn it on.
 
-## 1. Which week
+## 1. How the list works
 
-The list is for the next menu week that has Menu lines (usually the one just planned). It covers every Menu line of that week with Status Planned and a Dish, **except use-up days** (profile "Week"): those meals use what is left at home.
+Notion computes the list. Claude never writes it line by line: there is no shopping list database, only a view of Products on the **Shopping list** page.
 
-Lines with Status Leftovers or Lunchbox have no dish and count for nothing: their portions are already in the Servings of the meal they come from.
-
-## 2. Last week's leftovers
-
-Read the Shopping list lines of the previous week with Bought = no. If there are any, ask once, in the validation message (section 8): bought after all (tick Bought), carry over to this week (change Week), or drop (leave them, they stay unticked).
-
-## 3. Dishes without ingredients
-
-Planned dishes with Ingredients filled = no cannot be counted. List them under the shopping list: "I couldn't count: Chili, Quiche. Send me their ingredients (dictation or photo) and I'll add them." Build the list for the rest anyway. When the user sends the ingredients, complete the dish (`recipe.md` section 6), then add what it needs.
-
-## 4. Needs
-
-For each product:
+For each product that is not a Staple:
 
 ```
-need = Σ (Quantity of the Dish ingredients line × Servings of the Menu line)
+need    = Σ Quantity (Dish ingredients) × Servings (Menu)
+          over Menu lines with Status Planned, from today to today + 6
+stock   = see stock.md section 1
+to buy  = need − stock, rounded up to whole packs
 ```
 
-summed over every counted Menu line. Read Quantity from Dish ingredients and Servings from Menu (rollups are not readable; see `notion-schema.md`).
+- Staples (Staple = yes) are never computed: they are on the list only when Add to list is ticked.
+- Add to list ticked, nothing else needed: one pack.
+- The view "To buy" shows every product with something to buy, grouped by Store, sorted by Aisle, with the dishes it is for (For dishes) and a **Bought** button.
+- A product leaves the list as soon as: Bought is pressed (Bought since grows by what was bought, Add to list is unticked), the menu changes, or a count shows there is enough at home.
 
-Only products from recipes, staples and weekly extras go on the list. Never add a side, a drink or "something extra" yourself. If a meal looks incomplete, ask.
+So, to change the list, change what it is computed from: the menu (`feedback.md`), the quantities of a dish (`recipe.md` section 7), the stock (`stock.md`), or Add to list. Never write the formula properties (`notion-schema.md`).
 
-## 5. Packs to buy
+The list covers 7 days from today. Meals further ahead appear as the days come. If the user asks for a longer stretch, say so; the window is the `6` in the Need 7d formula, which they can change in Notion.
 
-- `packs = round up (need ÷ Recipe units per pack)`, written with the Pack size: "2 × 20 cl carton".
-- Products bought loose (Recipe unit = piece, no Recipe units per pack): the number of pieces, rounded up: "3 carrots".
-- Recipe units per pack empty for another unit: write the need in the recipe unit, rounded up ("4 tbsp"), and ask once whether to fill in the pack size.
-- Free rules about buying (brand, label, organic) go in the Quantity text: "12 (free range)".
+## 2. Dishes without ingredients
 
-## 6. What is already at home
+A planned dish with no Dish ingredients lines adds nothing to the list. Each time you show the list, read the Menu lines of the next 7 days (view "Next 7 days"), and list the dishes with Ingredients filled = no under the list: "Not counted: Chili, Quiche. Send me their ingredients (dictation or photo) and I'll add them." When the user sends them, complete the dish (`recipe.md` section 6). The list updates by itself.
 
-**Stock module on** (Level of each product):
+## 3. Showing the list
 
-| Level | Covers |
-| --- | --- |
-| Full | the week's need for a staple; any need smaller than one pack |
-| Opened | about half a pack |
-| Low, Out, empty | nothing |
+"Make the shopping list", "what do we need?":
 
-Subtract what is covered. In doubt about an important product, ask in the validation message.
-
-**Stock module off:** staples are assumed at home and not listed (section 7). Subtract only what the user said they have in this conversation ("we still have rice").
-
-## 7. Staples and weekly extras
-
-- **Staples** (Products with Staple = yes, and profile "Shopping"):
-  - stock on: add the staples whose Level is Low or Out, Reason Staple;
-  - stock off: ask in the validation message, "Running low on any staple?", and add what the user names.
-- **Weekly extras** (profile "Shopping"): add each one, Reason Weekly extra. If the menu also needs the product, write one line with the larger of the two amounts ("12 eggs in total"). A category ("seasonal fruit: 3") becomes in-season products from Products; say which ones.
-- **Never on the list** (profile "Shopping"): never add these, even if a recipe uses them; mention them in one line if a dish needs one.
-- Missing product (weekly extra, or anything else to add): prepare it like `recipe.md` section 3, step 5, and show it with the list.
-
-## 8. Showing the list
-
-Grouped by store, then aisle in the order Fruit & veg, Meat & fish, Dairy, Savoury pantry, Sweet pantry, Frozen, Household. One line per product with the quantity. Store = the product's Store; if it is empty, follow the profile section "Stores" and propose to set it.
+1. Read the "To buy" view (view mode, address in the profile block "For Claude, do not edit"). You get the products, their Store and Aisle. The quantities are formulas, not readable.
+2. Show the products grouped by store, then aisle in the order Fruit & veg, Meat & fish, Dairy, Savoury pantry, Sweet pantry, Frozen, Household. Say that the quantities and the Bought buttons are on the Shopping list page.
 
 ```
 🛒 Supermarket
-Fruit & veg: 3 carrots · 1 bunch of parsley
-Dairy: 1 × 20 cl carton of cream · 12 eggs (free range)
+Dairy: cream · mozzarella · buckwheat galettes
+Meat & fish: cod · ham
 
 🥕 Greengrocer
-Fruit & veg: 4 apples
+Fruit & veg: leeks · mushrooms · parsley · potatoes
+
+Quantities and ✓ buttons: Shopping list page in Notion.
 ```
 
-Then at most three lines: dishes not counted (section 3), questions (last week's lines, staples, doubts). No prices, no budget.
+3. Then at most three lines: dishes not counted (section 2), "Running low on any staple?", a product from "Never on the list" that a dish needs.
 
-Wait for the user's yes. Apply corrections and show only what changed.
+No prices, no budget.
 
-## 9. Writing to Notion
+## 4. Adding an item
 
-1. Read the Shopping list lines already on this Week. A product already listed: update its line rather than create a second one.
-2. Create the new lines in one call: Item (product name), Product (always set), Quantity, Store, Aisle, Reason (Menu, Staple, Weekly extra, Added), Week = first day of the menu week, Bought = no.
-3. Confirm in one line, and say which Notion view to open in the store (one per store).
-
-## 10. Adding an item
-
-"Add milk to the list": the request is the yes.
+"Add milk to the list", "we're out of oil": the request is the yes.
 
 1. Find the product in Products. If it does not exist, create it (`recipe.md` section 3, step 5) and say so.
-2. If it is already on the list for that week, update the quantity instead.
-3. Create the line with Reason Added, Week = the next menu week not yet shopped for.
-4. Confirm in one line ("Milk added to Supermarket, Dairy").
+2. Tick Add to list. It adds one pack; if the user wants more, say it is noted as one pack and they can buy what they need.
+3. Confirm in one line: "Milk is on the list (Supermarket, Dairy)."
 
-## 11. Never
+## 5. Weekly extras and staples
+
+- **Weekly extras** (profile "Shopping"): after a week is saved, tick Add to list on each one. The Bought button unticks them; next week, tick them again. A category ("seasonal fruit") becomes in-season products from Products; say which ones.
+- **Staples** (profile "Shopping", Staple = yes): not counted. When the user says one is running low, tick Add to list.
+- **Never on the list** (profile "Shopping"): these products have Staple = yes and are never ticked, so they never appear. Mention them in one line if a planned dish needs one.
+
+## 6. At the store
+
+The user presses Bought on each line as they go. Nothing to do for Claude.
+
+- "I didn't find the leeks": nothing to write, they stay on the list. If a meal of today or tomorrow needs them, propose a change (`feedback.md` section 3).
+- "I bought two instead of one", "I also bought feta", "I pressed Bought by mistake": ask how many there are at home now if it is not clear, then count it (`stock.md` section 2).
+
+## 7. Never
 
 - Never order, pay, or connect to a store.
 - Never estimate prices or a budget.
-- Never add a product that is not in a recipe, the staples, the weekly extras, or the user's request.
-- Never add anything from "Never on the list" or containing a strict restriction.
-- Never delete a Shopping list line.
+- Never tick Add to list on a product the user did not ask for, that is not a staple running low and not a weekly extra.
+- Never tick a product from "Never on the list" or containing a strict restriction.
+- Never write the formula properties (Need 7d, Eaten since, Stock, Buy qty, To buy, For dishes).

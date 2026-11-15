@@ -13,7 +13,7 @@ When the user says what they ate or how it was, the message is the request: writ
    - Note: their words, in a few words ("too dry", "double the sauce");
    - Rating on the dish: only if they give one.
 3. **Something else was eaten**: put that dish on the line (Status Cooked), so the history is true. If it is not in Dishes, write it in the Note and offer to add it (`recipe.md`).
-4. **Stock module on**: a Cooked line lowers the levels (`stock.md` section 4).
+4. **Stock**: nothing to write. Notion counts a Cooked meal, and a past Planned meal, as eaten. A meal not eaten at home must be Skipped or Postponed, so its ingredients stay in stock (`stock.md` section 1).
 5. **Confirm in one line**, without repeating everything. Then sections 2 and 4 if they apply.
 
 Several meals in one message: update them all in one go.
@@ -47,7 +47,7 @@ Triggers: "we're eating out tonight", "not in the mood for that", "no cream left
 - Eating out: that line becomes Skipped and keeps its Dish. If its fresh products would be lost, propose moving it to a close day in place of a dish that keeps better.
 - Lunchbox day added: the dinner before becomes a dish tagged Good for leftovers, with Extra for lunchbox and one more appetite in Servings; the lunch line becomes Lunchbox, Note "From <dish>".
 - Guests: raise Servings by their appetites; check the dish suits a table of guests and their restrictions if the user gives them.
-- Missing ingredient: stock module on, set it to Out. Then, in this order: a simple substitute from what is at home, a swap with another day, or adding it to the shopping list (`shopping.md` section 10).
+- Missing ingredient: count it 0 (`stock.md` section 2). Then, in this order: a simple substitute from what is at home, a swap with another day, or adding it to the shopping list (`shopping.md` section 4).
 - The week's rules still apply: rituals, strict restrictions, season, time limits, not the same dish two days in a row.
 
 ## 4. Learning

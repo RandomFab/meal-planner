@@ -1,77 +1,64 @@
-# Stock: what is left at home
+# Stock: what is at home
 
-Contents: 1. Levels · 2. First check · 3. Putting the shopping away · 4. After cooking · 5. Fridge check · 6. What can we make? · 7. Never
+Contents: 1. How stock works · 2. Counting · 3. Fridge check · 4. What can we make? · 5. Never
 
-Only if the profile's Stock tracking module is on. Otherwise say so and offer to turn it on (`setup.md`).
+## 1. How stock works
 
-Turning the module on authorises the level updates in sections 3 and 4: write them without asking, and list them in the confirmation line. Everything else is proposed first.
-
-## 1. Levels
-
-| Level | Means |
-| --- | --- |
-| Full | unopened, or plenty left |
-| Opened | in use, about half left |
-| Low | almost gone: a staple at Low goes on the next shopping list |
-| Out | none left |
-| empty | not tracked |
-
-Levels are approximate on purpose. No quantities, no use-by dates.
-
-## 2. First check
-
-When the module has just been turned on, no product has a Level yet. Offer a first check in one message: "Tell me what's in your fridge, freezer and pantry, roughly. A photo works too."
-
-- Match each item to an existing product; create the missing ones (`recipe.md` section 3, step 5).
-- Set Level (Full unless the user says it is opened or almost gone) and Location (Fridge, Freezer, Pantry).
-- Show the result grouped by Location, wait for the yes, then write in one call per database.
-
-## 3. Putting the shopping away
-
-When the user says the shopping is done, or the day after the profile's shopping day:
-
-1. Read the Shopping list lines of that week.
-2. Lines with Bought = yes: set the product's Level to Full, and Location if it is empty.
-3. Lines with Bought = no: one grouped question ("Not found: cream, leeks?"). If a missing product is needed for a planned meal, propose a change (`feedback.md` section 3).
-4. Confirm in one line: how many products are now Full, and what is missing.
-
-If the user did not tick anything, ask: "Did you get everything on the list?" A yes ticks every line.
-
-## 4. After cooking
-
-When a Menu line becomes Cooked (`feedback.md`), for each Dish ingredients line of its dish:
+Notion computes the stock of every product that is not a Staple:
 
 ```
-used = Quantity × Servings, compared with Recipe units per pack
+Stock = Stock count + Bought since − Eaten since
 ```
 
-Lower the product's Level roughly:
+- **Stock count** and **Counted on**: the last count, what was there before the meals of that day. Empty Counted on: the template's start date.
+- **Bought since**: what the Bought button of the shopping list added since the count.
+- **Eaten since**: Σ Quantity × Servings over the Menu lines dated from Counted on, with Status Cooked, or Status Planned and a date before today.
 
-- less than a quarter of a pack: no change;
-- a quarter of a pack up to a whole pack: one step down (Full → Opened → Low → Out);
-- a whole pack or more: Out, unless the user bought several.
+What follows from it:
 
-Products with an empty Level stay empty. Name the changes in the confirmation ("Cream now Low"). A staple that reaches Low goes on the next shopping list (`shopping.md` section 7).
+- Nobody updates the stock after cooking. A planned meal that was not eaten at home must become Skipped or Postponed (`feedback.md`), otherwise its ingredients count as used.
+- Staples are not counted (`shopping.md` section 5).
+- The stock drifts: food eaten outside the menu, thrown away, estimated quantities. A count fixes it.
 
-## 5. Fridge check
+**Stock is a formula: you cannot read it.** When you need the stock of a few products, compute it with the same rule from what you can read: Stock count, Counted on, Bought since (Products), the Menu lines of their dishes, and the Quantity of their Dish ingredients lines. Never do it for the whole catalogue.
 
-When the user talks about what is left, or asks for a check:
+## 2. Counting
 
-1. Read Products with a Level other than Out (view "At home"), grouped by Location, Opened and Low first.
-2. Show it in a few lines and ask for corrections in one go: "Anything finished? Anything new?"
-3. Update the Levels. What is gone: Out (never delete the product). Something new: the existing product, else create it.
+The user says what is there: "3 steaks left", "no more cream", "half a carton of cream", a photo of the fridge. The message is the request: write, then confirm in one line.
 
-## 6. What can we make?
+For each product:
+
+1. Find it in Products; if it does not exist, create it (`recipe.md` section 3, step 5).
+2. Write, in one call per product:
+   - Stock count = the quantity in the product's Recipe unit ("half a carton" with 13 tbsp per carton = 6.5);
+   - Counted on = today, or tomorrow if the count is made after a meal of today ("tonight there are 2 left");
+   - Bought since = 0.
+3. Vague amounts ("a bit of parmesan"): estimate, and say it is an estimate.
+4. "None left", "finished": Stock count 0.
+5. A Staple: no count. "No more oil" means Add to list (`shopping.md` section 4).
+
+Confirm: "Counted: 3 steaks, cream 0 (on the list again if a dish needs it)."
+
+## 3. Fridge check
+
+When the user wants to check what is left, or the day after shopping if they ask for it:
+
+1. Point to the "At home" view of Products: every counted product, grouped by place, the largest stocks first.
+2. Ask for corrections in one go: "Anything wrong? Tell me what is really there, roughly."
+3. Count what the user names (section 2).
+
+## 4. What can we make?
 
 "What can we make with what's left?":
 
-1. Start from products Opened or Low, fresh ones first (Fridge before Pantry).
+1. Start from fresh products (Location Fridge) with a Stock count or Bought since above 0. Compute their stock (section 1); keep those above 0.
 2. Find the dishes that use them (Dish ingredients), excluding Banned dishes and anything with a strict restriction.
-3. Keep dishes in season, that fit today's time limit, and whose other ingredients are Full or Opened.
+3. Keep dishes in season, within today's time limit.
 4. Propose 2 or 3, each with the products it uses up. If the user picks one, offer to put it on the menu (`feedback.md` section 3).
 
-## 7. Never
+## 5. Never
 
-- Never delete a product: set it to Out.
-- Never track use-by dates or exact quantities.
-- Never set a Level the user or the shopping list did not give, except the estimate after cooking.
+- Never delete a product: count it 0.
+- Never write the formula properties.
+- Never set a count the user did not give, except an estimate of a vague amount, said as such.
+- Never track use-by dates.

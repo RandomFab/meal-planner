@@ -1,17 +1,17 @@
 # Notion schema
 
-Template version: 1.0
+Template version: 2.0
 
-Contents: 1. Finding the workspace · 2. Household profile page · 3. Databases · 4. Reading · 5. Writing
+Contents: 1. Finding the workspace · 2. Household profile page · 3. Databases · 4. Shopping list page · 5. Reading · 6. Writing
 
 ## 1. Finding the workspace
 
-The user's workspace is a copy of the Meal Planner template: a root page "Meal Planner" containing two pages (Start here, Household profile) and five databases (Menu, Shopping list, Dishes, Products, Dish ingredients).
+The user's workspace is a copy of the Meal Planner template: a root page "Meal Planner" containing three pages (Start here, Household profile, Shopping list) and four databases (Menu, Dishes, Products, Dish ingredients).
 
 1. If the Notion tools are not available, tell the user to connect Notion (Settings → Connectors → Notion) and to give it access to their Meal Planner page. Stop.
 2. Search Notion for the page "Household profile". Open it and read the block "For Claude, do not edit" at the bottom.
-3. If that block holds the five database addresses, use them. Fetch one; if it fails, go to step 4.
-4. Otherwise, search for "Meal Planner" and open the root page. It lists the five databases. Note the data source address (`collection://…`) of each one.
+3. If that block holds the four database addresses and the "To buy" view address, use them. Fetch one; if it fails, go to step 4.
+4. Otherwise, search for "Meal Planner" and open the root page. It lists the four databases. Note the data source address (`collection://…`) of each one, and the view address (`view://…`) of the "To buy" view on the Shopping list page.
    - Nothing found: tell the user to duplicate the template (link in Start here and in the README) and share it with Claude. Stop.
    - Several copies found: use the one whose Setup date is set; if none or several are, ask which one to use.
 5. Check each database has the properties listed in section 3. If one is missing, tell the user which and stop: never work on a broken template.
@@ -37,10 +37,10 @@ One section per heading. Each section starts with an italic sentence, then lines
 | Rituals | Fixed meals |
 | Shopping | Staples, weekly extras, never on the list |
 | Recipes | Status given to a recipe the user sends |
-| Modules | Shopping list, stock tracking, daily brief (on/off), brief time |
+| Modules | Shopping list, daily brief (on/off), brief time |
 | Free rules | Anything else, in plain sentences |
 | Journal | Dated lines: what Claude has learned |
-| For Claude, do not edit | Template version, setup date, database addresses |
+| For Claude, do not edit | Template version, setup date, database addresses, "To buy" view address |
 
 Editing: change only the line concerned, keep the italic sentence, remove "(default)" when the user sets a value. Journal: append one line at the end, `YYYY-MM-DD: <what was learned>`.
 
@@ -78,7 +78,7 @@ Exact names. Option lists are complete: never write another value.
 | Rating | select | ⭐ to ⭐⭐⭐⭐⭐ |
 | Added from | select | Household, Suggested by Claude, Photo or link |
 | Source | url | |
-| Ingredients filled | checkbox | true once its Dish ingredients lines exist |
+| Ingredients filled | checkbox | true once its Dish ingredients lines exist; without them the dish counts for nothing in the shopping list and the stock |
 | Dish ingredients | relation → Dish ingredients | filled by creating the lines |
 | Menu | relation → Menu | filled by Menu lines |
 | Last cooked, Times cooked, Ingredients | rollups | Notion only, never write |
@@ -94,7 +94,7 @@ Exact names. Option lists are complete: never write another value.
 | Note | text | only what the recipe says ("yolk only") |
 | Product name, Unit, Label | rollups, formula | Notion only, never write |
 
-### Products — one line per product: catalogue, and stock if the module is on
+### Products — one line per product: catalogue, stock and shopping list
 
 | Property | Type | Values |
 | --- | --- | --- |
@@ -105,40 +105,38 @@ Exact names. Option lists are complete: never write another value.
 | Pack size | text | what is bought: "20 cl carton", "500 g pack" |
 | Recipe units per pack | number | e.g. 13 tbsp in a 20 cl carton of cream |
 | Season | multi-select | as Dishes |
-| Staple | checkbox | always kept at home |
+| Staple | checkbox | basic kept at home without counting (oil, spices, stock cubes, butter, eggs…), and products "Never on the list": on the list only when Add to list is ticked |
+| Add to list | checkbox | on the list by hand: a staple running low, a weekly extra, a request. The Bought button unticks it |
+| Stock count | number | quantity at the last count, in the Recipe unit |
+| Counted on | date | day of the last count, before that day's meals |
+| Bought since | number | Recipe units bought since the last count; the Bought button adds to it |
 | Location | select | Fridge, Freezer, Pantry |
-| Level | select | Full, Opened, Low, Out; empty = not tracked |
 | Note | text | |
-| Used in, Shopping list | relations | filled by the other databases |
+| Used in | relation | filled by Dish ingredients |
+| Need 7d, Eaten since, Stock, Buy qty, To buy, For dishes | formulas | Notion only: never write, not readable (`shopping.md`, `stock.md`) |
+| Bought | button | pressed by the user in the store; never by Claude |
 
-### Shopping list — one line per product to buy
+## 4. Shopping list page
 
-| Property | Type | Values |
-| --- | --- | --- |
-| Item | title | product name |
-| Product | relation → Products | always set |
-| Quantity | text | in packs: "2 × 20 cl carton", "3 carrots" |
-| Store | select | same options as Products |
-| Aisle | select | same options as Products |
-| Reason | select | Menu, Staple, Weekly extra, Added |
-| Week | date | first day of the menu week |
-| Bought | checkbox | |
+A page under the root, holding one linked view of Products named "To buy": filter To buy is not empty, grouped by Store, sorted by Aisle then Name, columns Name, To buy, Bought, For dishes, Aisle. Claude reads it in view mode and never writes to it. How the list is computed: `shopping.md` section 1.
 
-## 4. Reading
+## 5. Reading
 
 - **Read without SQL first.** Outside Notion's Business and Enterprise plans, SQL queries share a small workspace quota, and a query cannot join two databases. Use, in this order:
-  1. **view mode** on a template view whose filter fits (Today, Next 7 days, At home, the store views of Shopping list): no quota;
+  1. **view mode** on a template view whose filter fits (Today, Next 7 days, At home, To buy): no quota;
   2. **rows mode** on one data source, with a structured filter (`relation_contains`, `date_is_within`, `enum_is`…) and a sort;
   3. **SQL** only when neither fits, on one data source per query.
 - Combine databases yourself: read each one, then match the rows by page URL. Never write a query that joins two data sources.
 - Read each database once per task and reuse the result. Do not read it again for every dish or product.
 - If a read is refused because of the plan or the quota, switch to rows or view mode without telling the user. Mention it only if nothing works, and then never write anything to Notion from partial data.
-- **Rollups and formulas are not readable through the API** (Last cooked, Times cooked, Ingredients, Product name, Unit, Label). Compute instead:
+- **Rollups and formulas are not readable through the API** (Last cooked, Times cooked, Ingredients, Product name, Unit, Label, and the Products formulas). Compute instead:
   - ingredients of a dish: Dish ingredients where Dish contains the dish, joined to Products (Name, Recipe unit);
-  - last time a dish was eaten: latest Menu Date where Dish contains it and Status is Cooked or Leftovers.
+  - last time a dish was eaten: latest Menu Date where Dish contains it and Status is Cooked or Leftovers;
+  - what is on the shopping list: the products returned by the "To buy" view;
+  - the stock of a product: `stock.md` section 1.
 - Relations are stored as JSON arrays of page URLs.
 
-## 5. Writing
+## 6. Writing
 
 - Dates: `date:<Property>:start` = `YYYY-MM-DD`, `date:<Property>:is_datetime` = 0.
 - Relations: array of page URLs or IDs.

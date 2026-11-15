@@ -25,7 +25,7 @@ Always reply in the user's language. Text you write for the user (menus, lists, 
 | sends a recipe (photo, scan, link, dictated or typed text), lists dishes they cook, asks to add or fix a dish | `references/recipe.md` |
 | asks for the weekly menu, or it is the planning day | `references/plan-week.md` |
 | asks for the shopping list, adds an item to it | `references/shopping.md` |
-| talks about what is left at home, has done the shopping | `references/stock.md` (only if the stock module is on; otherwise offer to turn it on) |
+| says what is left at home or what is finished, bought something different from the list, asks what to make with what's left | `references/stock.md` (only if the shopping list module is on) |
 | asks what is for lunch or dinner today, or this is the scheduled daily brief | `references/daily-brief.md` |
 | says what they ate, gives feedback, says plans changed, states a preference | `references/feedback.md` |
 | asks what you can do | the help list below |
@@ -49,7 +49,8 @@ Several intents in one message: handle them in the order of the table.
 When the user asks what you can do, show this list in their language:
 
 - "Plan next week's meals": a full week, saved once you agree
-- "Make the shopping list": what to buy, by store and aisle
+- "Make the shopping list": what to buy, by store and aisle, always up to date in Notion
+- "3 steaks left, no more cream": the stock is corrected, the list follows
 - "What's for dinner?": today's meals and what to prepare for tomorrow
 - A photo, a link or a dictated recipe: added to your dishes
 - "We often make carbonara, chili, quiche": dishes added by name

@@ -11,7 +11,7 @@ The menu covers 7 days, starting on the profile's "First day of the menu". By de
 1. **Household profile**: every section. Journal lines with an end date ("until …") apply only until that date.
 2. **Dishes**: all except Banned. Note Status, Type, Meal, Total time, Season, Main protein, Tags, Ingredients filled.
 3. **Menu, last 3 weeks**: what was eaten, feedback, and dishes that should come back soon: lines Postponed or Skipped, and Notes "Postponed: <dish>".
-4. **Products**, only if the stock module is on: products Opened or Low, to use first.
+4. **Products** to use first: fresh products still at home (`stock.md` section 4, step 1).
 5. **Dish ingredients**: which dishes use the products to use first.
 
 ## 3. Questions of the week
@@ -20,7 +20,6 @@ Ask once, in one short message, only what you cannot know:
 
 - Changes this week: meals out, guests, days away.
 - Lunchbox days, if the profile says they vary from week to week.
-- If the stock module is off: "Anything in the fridge to use up?"
 
 Give your defaults in the same message ("If you don't answer, I'll plan every meal at home"). When there is no answer (scheduled run), plan with the defaults and list your assumptions at the top of the menu.
 
@@ -56,13 +55,13 @@ Give your defaults in the same message ("If you don't answer, I'll plan every me
 - Place as many new dishes as the profile asks (default 1 per week): a To try dish first; if there is none, suggest a new recipe that fits the profile and add it only if the user agrees, as a full recipe with Status To try.
 - Put a new dish on an evening without constraint: not before a lunchbox day, not on a busy day the user mentioned.
 
-**Stock** (stock module on)
+**Stock**
 
-- Prefer dishes that use products Opened or Low, fresh products first.
+- Prefer dishes that use the fresh products still at home (section 2, step 4).
 
 **Dishes without ingredients** (Ingredients filled = no)
 
-- They can be planned. Mention them once under the menu: their ingredients will be needed for the shopping list.
+- They add nothing to the shopping list or the stock. When you show the menu, ask for their ingredients in one line ("Send me the ingredients of the chili and the quiche, or they won't be on the list"). If the user does not give them, plan them anyway: the shopping list will mention them (`shopping.md` section 2).
 
 **Sides**
 
@@ -86,8 +85,9 @@ After the user's yes:
 
 1. Read the Menu lines already on those dates. Update them rather than creating duplicates.
 2. Create the missing lines in one call: Name, Date, Meal, Dish (empty for Leftovers or Lunchbox), Status (Planned, Leftovers or Lunchbox), Servings, Extra for lunchbox, Prep ahead, Note.
-3. Confirm in one line. If the shopping list module is on, offer to build the list now.
-4. If the user stated a lasting preference during the exchange, propose to record it in the profile.
+3. If the shopping list module is on, tick Add to list on the profile's weekly extras (`shopping.md` section 5).
+4. Confirm in one line. If the shopping list module is on, say the list is up to date on the Shopping list page.
+5. If the user stated a lasting preference during the exchange, propose to record it in the profile.
 
 ## 8. Never
 

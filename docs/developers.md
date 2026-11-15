@@ -37,8 +37,8 @@ meal-planner/
 │       ├── setup.md               # guided setup, settings, modules
 │       ├── recipe.md              # adding and fixing dishes
 │       ├── plan-week.md           # weekly menu
-│       ├── shopping.md            # shopping list
-│       ├── stock.md               # what is left at home (optional module)
+│       ├── shopping.md            # shopping list (computed by Notion)
+│       ├── stock.md               # what is at home: counts and corrections
 │       ├── daily-brief.md         # today's meals, scheduled brief
 │       └── feedback.md            # what was eaten, feedback, plan changes, preferences
 ├── examples/                      # fictional household and sample exchanges
@@ -50,25 +50,41 @@ meal-planner/
 
 ## Notion data model
 
-Five databases under a root page, plus a **Household profile** page that holds every setting and what Claude has learned. Full schema in [`notion-schema.md`](../skills/meal-planner/references/notion-schema.md).
+Four databases under a root page, plus a **Household profile** page that holds every setting and what Claude has learned, and a **Shopping list** page that shows a view of Products. Full schema in [`notion-schema.md`](../skills/meal-planner/references/notion-schema.md).
 
 | Database | One row per | Key relations |
 | --- | --- | --- |
 | Menu | meal (date × lunch/dinner) | Dish |
 | Dishes | dish, steps in the page body | Dish ingredients, Menu |
 | Dish ingredients | ingredient of a dish, for one adult portion | Dish, Product |
-| Products | product bought; stock level if tracking is on | Used in, Shopping list |
-| Shopping list | product to buy for a week | Product |
+| Products | product bought, its stock and what to buy | Used in |
 
 Design choices:
 
+- **Notion computes what is deterministic, Claude does the rest.** The shopping list and the stock are formulas, always up to date: Claude never writes them. Claude plans, writes recipes, and records counts and corrections in the user's words.
+- **Stock is a ledger, not a level.** `Stock = Stock count + Bought since − Eaten since`. Eating is derived from the menu (Cooked meals, and Planned meals in the past), buying from the Bought button, so nobody updates the stock by hand. A count resets it.
 - **Quantities for one adult portion**, scaled by each member's appetite (adult 1, light 0.8, child 0.5).
-- **Rollups and formulas are display-only**: the connector can't read them, so the skill computes from the base properties.
+- **Rollups and formulas are display-only**: the connector can't read them, so the skill reads views (the "To buy" view gives the list) or computes from the base properties.
 - **Reads avoid SQL**: outside Notion's Business plan, SQL queries share a small quota. The skill reads saved views first, then filtered rows, and SQL only as a last resort.
-- **Propose before writing**: every change is shown and approved, except steps the user authorised in advance (stock updates once tracking is on).
+- **Propose before writing**: every change is shown and approved, except what the user's own message asks for (a count, an item to add).
 - **Never delete**: statuses (Banned, Skipped, Postponed) instead. The only exception is removing the template's sample dishes during setup, on request.
 
 The template version is stored in the profile page. A change to database or property names is a major version (users must duplicate a new template).
+
+### Products formulas
+
+The Notion API can't create a formula that reads related pages, so the first three are pasted in the Notion editor when building the template. Users get them by duplicating it.
+
+| Property | Formula |
+| --- | --- |
+| Need 7d | `prop("Used in").map(lets(q, current.prop("Quantity"), s, current.prop("Dish").map(current.prop("Menu")).flat().filter(current.prop("Status") == "Planned" and dateBetween(current.prop("Date"), today(), "days") >= 0 and dateBetween(current.prop("Date"), today(), "days") <= 6).map(current.prop("Servings")).sum(), q * s)).sum()` |
+| Eaten since | `lets(d, if(empty(prop("Counted on")), parseDate("<template date>"), prop("Counted on")), prop("Used in").map(lets(q, current.prop("Quantity"), s, current.prop("Dish").map(current.prop("Menu")).flat().filter(dateBetween(current.prop("Date"), d, "days") >= 0 and (current.prop("Status") == "Cooked" or (current.prop("Status") == "Planned" and dateBetween(current.prop("Date"), today(), "days") < 0))).map(current.prop("Servings")).sum(), q * s)).sum())` |
+| For dishes | `prop("Used in").filter(current.prop("Dish").map(current.prop("Menu")).flat().filter(current.prop("Status") == "Planned" and dateBetween(current.prop("Date"), today(), "days") >= 0 and dateBetween(current.prop("Date"), today(), "days") <= 6).length() > 0).map(current.prop("Dish").first().prop("Name")).unique().join(", ")` |
+| Stock | `if(prop("Staple"), 0, max(round((if(empty(prop("Stock count")), 0, prop("Stock count")) + if(empty(prop("Bought since")), 0, prop("Bought since")) - prop("Eaten since")) * 100) / 100, 0))` |
+| Buy qty | `lets(per, prop("Recipe units per pack"), missing, round((prop("Need 7d") - prop("Stock")) * 100) / 100, if(prop("Staple") or missing <= 0, 0, if(empty(per) or per <= 0, ceil(missing), ceil(missing / per) * per)))` |
+| To buy | `lets(per, prop("Recipe units per pack"), q, prop("Buy qty"), unit, format(prop("Recipe unit")), pack, if(empty(prop("Pack size")), "pack", prop("Pack size")), if(q > 0, if(empty(per) or per <= 0, format(q) + if(unit == "piece" or unit == "", "", " " + unit), format(round(q / per)) + " × " + pack), if(prop("Add to list"), "1 × " + pack, "")))` |
+
+The **Bought** button has two actions: edit Bought since to `Bought since + Buy qty` (on this page), and untick Add to list.
 
 ## Releases
 

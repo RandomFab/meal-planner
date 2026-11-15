@@ -50,10 +50,10 @@ Everything else keeps its default (Variety, Shopping, Recipes, Modules). Mention
 1. **Show the summary**: one line per section, in the user's language, defaults marked. End with the disclaimer if there is a strict restriction, and "Shall I save it?"
 2. **After the yes**, in this order:
    1. **Profile page**: for each section, replace the values the user gave and remove "(default)". Keep headings, setting names and italic sentences exactly, in English. **Write the values in the user's language, never translated into English**: a French speaker gets "Cacahuètes", "Cuisine italienne", "Vendredi soir : pizza", not "Peanuts", "Italian cuisine".
-   2. **Stores**: add each store as an option of Store, with the same name in Products and Shopping list. Create one Shopping list view per store, built like the "Supermarket" view (list, filter Store = the store and Bought unticked, grouped by Aisle). If the user does not shop at a "Supermarket", rename that view and change its filter to their main store.
+   2. **Stores**: add each store as an option of Store in Products. The "To buy" view on the Shopping list page is already grouped by store: nothing else to create.
    3. **Products' Store**: set every product to the right store, following the profile section "Stores" (one store: all products).
-   4. **Staples**: tick Staple on the products the profile lists as staples.
-   5. **"For Claude, do not edit" block**: Setup date (today) and the five data source addresses.
+   4. **Staples**: tick Staple on the products the profile lists as staples and on those "Never on the list".
+   5. **"For Claude, do not edit" block**: Setup date (today), the four data source addresses and the "To buy" view address.
 3. **Confirm** in one line: "Your profile is saved. You can change anything by telling me, or directly on the Household profile page." Then, in the same message, go on to section 5.
 
 Setup is the only time you may create select options (Store only).
@@ -91,8 +91,9 @@ Its own message, or the last line of the previous one, never buried in a paragra
 Once the first menu is saved or declined, show in the user's language:
 
 - Five sentences to try: "What's for dinner?", "Make the shopping list", "We're eating out on Thursday", "The curry was great 👍", a photo of a recipe.
-- Where things are: the Today view of Menu on the phone, one Shopping list view per store.
-- Optional modules (section 10): stock tracking and the daily brief. Offer them in one line, do not push.
+- Where things are: the Today view of Menu on the phone, the Shopping list page in the store (press Bought on each product as you go).
+- What is at home: "Tell me roughly what's in your fridge, freezer and pantry, a photo works too, and the list will leave it out" (`stock.md` section 2). Offer it in one line.
+- The daily brief (section 10): offer it in one line, do not push.
 
 ## 9. Changing a setting
 
@@ -100,7 +101,7 @@ Once the first menu is saved or declined, show in the user's language:
 
 1. Find the section and line concerned. Show the line before and after.
 2. After the yes, change only that line, remove "(default)", and add one Journal line.
-3. A new store: also add the Store option and its view (section 4, step 2). A new staple: also tick Staple on the product.
+3. A new store: also add the Store option (section 4, step 2). A new staple, or a product never to buy: also tick Staple on the product.
 4. A change that affects the planned week (a new strict restriction, fewer people): check the Menu lines from today on and propose the changes (`feedback.md` section 3).
 
 ## 10. Modules
@@ -109,8 +110,7 @@ Turn a module on or off only when the user asks or agrees. Update the line in th
 
 | Module | On | Off |
 | --- | --- | --- |
-| Shopping list | `shopping.md` is used | No list; the menu still works |
-| Stock tracking | Say that Claude will update the levels after shopping and cooking without asking each time. Offer the first check (`stock.md` section 2). Point to the "At home" view of Products | Levels stay as they are and are no longer read |
+| Shopping list | `shopping.md` and `stock.md` are used | Claude no longer talks about the list or the stock; the menu still works |
 | Daily brief | See below | Tell the user to delete their scheduled task |
 
 **Daily brief**: it needs a scheduled task in the user's Claude app (available on some plans only). Give the text to paste, with the time from the profile:
