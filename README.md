@@ -111,14 +111,14 @@ Claude proposes a task with its name, time and instructions. Check it, then clic
 <details>
 <summary>🎬 <b>Watch the whole install (1 min 20)</b></summary>
 <br>
-<img src="docs/media/install.gif" alt="The install steps, from Notion to Claude" width="760">
+<a href="docs/media/install.mp4"><img src="docs/media/install-cover.jpg" alt="Play the install video, from Notion to Claude" width="760"></a>
 </details>
 
 <details>
 <summary>Using Claude Code instead?</summary>
 <br>
 
-Run `/plugin marketplace add RandomFab/claude-plugins`, then `/plugin install meal-planner@claude-plugins`. Details in [docs/developers.md](docs/developers.md).
+Run `/plugin marketplace add RandomFab/claude-plugins`, then `/plugin install meal-planner@randomfab`. Details in [docs/developers.md](docs/developers.md).
 </details>
 
 ## Your first try

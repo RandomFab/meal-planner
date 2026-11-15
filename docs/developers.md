@@ -18,7 +18,7 @@ A single [Agent Skill](https://docs.claude.com/en/docs/agents-and-tools/agent-sk
 
 ```text
 /plugin marketplace add RandomFab/claude-plugins
-/plugin install meal-planner@claude-plugins
+/plugin install meal-planner@randomfab
 ```
 
 Then connect Notion (`/mcp`) and share your Meal Planner page with it.

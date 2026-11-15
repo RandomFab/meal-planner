@@ -111,14 +111,14 @@ Claude vous propose une tâche avec son nom, son horaire et ses instructions. V�
 <details>
 <summary>🎬 <b>Voir toute l'installation (1 min 20)</b></summary>
 <br>
-<img src="docs/media/install.gif" alt="Les étapes d'installation, de Notion à Claude" width="760">
+<a href="docs/media/install.mp4"><img src="docs/media/install-cover.jpg" alt="Lire la vidéo d'installation, de Notion à Claude" width="760"></a>
 </details>
 
 <details>
 <summary>Vous utilisez Claude Code ?</summary>
 <br>
 
-Lancez `/plugin marketplace add RandomFab/claude-plugins`, puis `/plugin install meal-planner@claude-plugins`. Détails dans [docs/developers.md](docs/developers.md) (en anglais).
+Lancez `/plugin marketplace add RandomFab/claude-plugins`, puis `/plugin install meal-planner@randomfab`. Détails dans [docs/developers.md](docs/developers.md) (en anglais).
 </details>
 
 ## Premier essai

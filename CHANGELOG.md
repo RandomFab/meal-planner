@@ -5,6 +5,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions: [Sem
 
 ## [Unreleased]
 
+### Changed
+
+- The install video in the README is now a sharper MP4.
+- Claude Code: install with `/plugin install meal-planner@randomfab`, from the new `RandomFab/claude-plugins` catalogue.
+
 ## [1.0.0-beta.2] - 2026-11-15
 
 ### Added
