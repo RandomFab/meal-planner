@@ -5,9 +5,11 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions: [Sem
 
 ## [Unreleased]
 
+## [1.0.0-beta.3] - 2026-11-15
+
 ### Changed
 
-- The install video in the README is now a sharper MP4.
+- The install video in the README is now a sharper video, played right in the page.
 - Claude Code: install with `/plugin install meal-planner@randomfab`, from the new `RandomFab/claude-plugins` catalogue.
 
 ## [1.0.0-beta.2] - 2026-11-15
@@ -41,6 +43,7 @@ First beta, for the first testers.
 - Feedback and changes of plan: say what you ate, what you thought of it, or that you're eating out, and the week adapts.
 - Optional tracking of what is left in the fridge, freezer and cupboards.
 
-[Unreleased]: https://github.com/RandomFab/meal-planner/compare/v1.0.0-beta.2...HEAD
+[Unreleased]: https://github.com/RandomFab/meal-planner/compare/v1.0.0-beta.3...HEAD
+[1.0.0-beta.3]: https://github.com/RandomFab/meal-planner/compare/v1.0.0-beta.2...v1.0.0-beta.3
 [1.0.0-beta.2]: https://github.com/RandomFab/meal-planner/compare/v1.0.0-beta.1...v1.0.0-beta.2
 [1.0.0-beta.1]: https://github.com/RandomFab/meal-planner/releases/tag/v1.0.0-beta.1
