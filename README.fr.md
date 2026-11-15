@@ -110,8 +110,9 @@ Claude vous propose une tâche avec son nom, son horaire et ses instructions. V�
 
 <details>
 <summary>🎬 <b>Voir toute l'installation (1 min 20)</b></summary>
-<br>
-<a href="docs/media/install.mp4"><img src="docs/media/install-cover.jpg" alt="Lire la vidéo d'installation, de Notion à Claude" width="760"></a>
+
+https://github.com/user-attachments/assets/e100e266-9d94-4e71-9e4f-df95c35eafc7
+
 </details>
 
 <details>

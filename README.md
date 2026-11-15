@@ -110,8 +110,9 @@ Claude proposes a task with its name, time and instructions. Check it, then clic
 
 <details>
 <summary>🎬 <b>Watch the whole install (1 min 20)</b></summary>
-<br>
-<a href="docs/media/install.mp4"><img src="docs/media/install-cover.jpg" alt="Play the install video, from Notion to Claude" width="760"></a>
+
+https://github.com/user-attachments/assets/e100e266-9d94-4e71-9e4f-df95c35eafc7
+
 </details>
 
 <details>
