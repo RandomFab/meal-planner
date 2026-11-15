@@ -108,13 +108,11 @@ Claude proposes a task with its name, time and instructions. Check it, then clic
 > [!NOTE]
 > The task runs even when your computer is off. It needs a paid plan (Pro or above).
 
-<!-- Optional install GIF (standard 07): uncomment once docs/media/install.gif exists.
 <details>
-<summary>🎬 <b>Watch the whole install (45 seconds)</b></summary>
+<summary>🎬 <b>Watch the whole install (1 min 20)</b></summary>
 <br>
 <img src="docs/media/install.gif" alt="The install steps, from Notion to Claude" width="760">
 </details>
--->
 
 <details>
 <summary>Using Claude Code instead?</summary>

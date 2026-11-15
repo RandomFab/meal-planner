@@ -108,13 +108,11 @@ Claude vous propose une tâche avec son nom, son horaire et ses instructions. V�
 > [!NOTE]
 > La tâche tourne même quand votre ordinateur est éteint. Elle demande un abonnement payant (Pro ou plus).
 
-<!-- GIF d'installation facultatif (standard 07) : décommenter quand docs/media/install.gif existe.
 <details>
-<summary>🎬 <b>Voir toute l'installation (45 secondes)</b></summary>
+<summary>🎬 <b>Voir toute l'installation (1 min 20)</b></summary>
 <br>
 <img src="docs/media/install.gif" alt="Les étapes d'installation, de Notion à Claude" width="760">
 </details>
--->
 
 <details>
 <summary>Vous utilisez Claude Code ?</summary>
