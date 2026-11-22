@@ -23,7 +23,7 @@ A single [Agent Skill](https://docs.claude.com/en/docs/agents-and-tools/agent-sk
 
 Then connect Notion (`/mcp`) and share your Meal Planner page with it.
 
-A plugin installed from claude.ai (**Plugins → Add → Add marketplace**, `RandomFab/claude-plugins`) is saved to the account: it also reaches Cowork, scheduled tasks and Claude Code (as a synced plugin) without a second install. The release asset `meal-planner.zip` is the plugin itself (`.claude-plugin/plugin.json` + `skills/`), for **Add → Upload plugin**.
+A plugin installed from claude.ai (**Plugins → Add → Add marketplace**, `RandomFab/claude-plugins`) is saved to the account: it also reaches Cowork, scheduled tasks and Claude Code (as a synced plugin) without a second install. Adding a marketplace needs a paid plan. On the free plan, users upload the skill itself: the release asset `meal-planner.zip` holds the `meal-planner/` skill folder at its top (also the file sent to Agensi). `meal-planner-plugin.zip` holds `.claude-plugin/plugin.json` and `skills/`, for **Add → Upload plugin** on a paid plan.
 
 To try a local copy instead, clone this repository and run `/plugin marketplace add ./` from a folder that holds a `marketplace.json` pointing to it, or copy `skills/meal-planner/` into `~/.claude/skills/`.
 
@@ -95,7 +95,8 @@ Version lives in `.claude-plugin/plugin.json` only. Work happens on `develop`; `
 1. Update `version` in `plugin.json`, move `Unreleased` in `CHANGELOG.md` to a dated section.
 2. Commit `release: vX.Y.Z`, merge `develop` into `main`.
 3. Tag `main`: `git tag -a vX.Y.Z -m "vX.Y.Z"`, push `main` and the tag.
-4. The `Release` workflow checks the tag against `plugin.json`, zips the plugin (`.claude-plugin/`, `skills/`, `LICENSE`), and creates the GitHub release with the CHANGELOG section as notes. Tags with a `-` (betas) are marked as pre-releases.
+4. The `Release` workflow checks the tag against `plugin.json`, builds one ZIP per skill (the skill folder at the top, with `LICENSE`) and `<product>-plugin.zip` (`.claude-plugin/`, `skills/`, `LICENSE`), and creates the GitHub release with the CHANGELOG section as notes. Tags with a `-` (betas) come out as pre-releases: until a stable version exists, edit the release to a normal one and mark it **Latest** (`gh release edit <tag> --prerelease=false --latest`), otherwise the README's download link keeps serving the previous version.
+5. Then point the `claude-plugins` catalogue to the new tag and push it, never before the release exists.
 
 The `Checks` workflow runs on every push: `plugin.json` version, skill frontmatter, required files, a CHANGELOG entry for the current version, no file of 5 MiB or more, no system files, and a secret scan.
 

@@ -128,7 +128,7 @@ Ask nothing beyond the feedback line and the ingredient line. Never write to Not
 ```
 
 - Never tell the task to send, notify or message: the app delivers the reply and notifies the phone. A task told to send uses every channel it finds (the brief arrives two or three times) or reports that it found none.
-- The user's task already exists, or its brief comes twice or reads like a report: give this text to replace its instructions (Scheduled, in the left sidebar).
+- The user's task already exists, or its brief comes twice or reads like a report: give this text to replace its instructions (Scheduled tasks, in the left sidebar).
 - After a change to this model (new module, renamed view), offer to update the task the same way.
 
 Without scheduled tasks, the user can simply ask "what's for dinner?" each day.

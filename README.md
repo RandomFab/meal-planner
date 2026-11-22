@@ -67,7 +67,7 @@ Each week builds on the last: what you loved comes back, what you didn't shows u
 
 ## Before you start
 
-- [ ] A **Claude Pro** plan or above, on [claude.ai](https://claude.ai) or the Claude desktop app. Claude uses skills only on paid plans.
+- [ ] A **Claude** account, on [claude.ai](https://claude.ai) or the Claude desktop app. The free plan is enough; a Pro plan or above adds automatic updates and the morning brief.
 - [ ] A free **Notion** account, on [notion.so](https://www.notion.so)
 - [ ] About **10 minutes**
 
@@ -90,18 +90,18 @@ Open **Settings → Capabilities** and switch on **Code execution and file creat
 
 ### 4️⃣ Add Meal Planner to Claude
 
+**On a Pro plan or above** (new versions arrive by themselves):
+
 1. In **Plugins**, click **Add**, then **Add marketplace**.
 2. Enter `RandomFab/claude-plugins` and confirm.
 3. **Meal Planner** now appears in the list: click it, then **Install**.
 
-It works everywhere you use Claude: chats, Cowork, scheduled tasks and Claude Code. To get new versions by themselves, open the marketplace and turn on **Sync automatically**.
+It then works in chats, Cowork, scheduled tasks and Claude Code. Open the marketplace and turn on **Sync automatically**.
 
-<details>
-<summary>Can't add a marketplace? Upload the file instead.</summary>
-<br>
+**On the free plan:** [download meal-planner.zip](https://github.com/RandomFab/meal-planner/releases/latest/download/meal-planner.zip). In **Plugins**, click **Add**, choose to upload a skill and select the file. Don't unzip it. You'll repeat this step for each new version.
 
-[Download meal-planner.zip](https://github.com/RandomFab/meal-planner/releases/latest/download/meal-planner.zip). In **Plugins**, click **Add**, then **Upload plugin**, and select the file. Don't unzip it. Use this link, not GitHub's green **Code** button. With a file, you'll repeat this step for each new version.
-</details>
+> [!TIP]
+> Use this link, not GitHub's green **Code** button: that one downloads files Claude can't read.
 
 ### 5️⃣ Schedule the morning brief <sup>optional</sup>
 
@@ -111,10 +111,10 @@ In a new conversation, write:
 Schedule my morning meal brief, every day at 10 am.
 ```
 
-Claude proposes a task with its name, time and instructions: they are long on purpose, because the task runs on its own, without the conversation. Check the time, then click **Schedule**. You'll find it later under **Scheduled** in the left sidebar, to change the time or pause it.
+Claude proposes a task with its name, time and instructions: they are long on purpose, because the task runs on its own, without the conversation. Check the time, then click **Schedule**. You'll find it later under **Scheduled tasks** in the left sidebar, to change the time or pause it.
 
 > [!NOTE]
-> The task runs even when your computer is off.
+> The task runs even when your computer is off. It needs a paid plan (Pro or above).
 
 <details>
 <summary>🎬 <b>Watch the whole install (1 min 20)</b></summary>
@@ -197,7 +197,7 @@ Change these at any time by just telling Claude, for example "We are now 3 peopl
 <details>
 <summary><b>Do I need a paid Claude plan?</b></summary>
 <br>
-Yes, Pro or above: Claude uses skills only on paid plans. The morning brief is included. Notion stays free.
+No. On the free plan, install Meal Planner from the file (step 4). A Pro plan or above adds automatic updates and the morning brief (step 5). Without the brief, just ask "What's for dinner today?".
 </details>
 
 <details>
@@ -209,19 +209,19 @@ Go back to <b>Plugins → Connectors → Notion</b> and check that the <b>Meal P
 <details>
 <summary><b>Meal Planner doesn't appear after adding the marketplace.</b></summary>
 <br>
-Open the marketplace and click <b>Check for updates</b>. Check that <b>Code execution and file creation</b> is on (step 3). On a work account, your administrator may not allow adding marketplaces: upload the file instead (step 4).
+Open the marketplace and click <b>Check for updates</b>. Check that <b>Code execution and file creation</b> is on (step 3). Adding a marketplace needs a paid plan, and on a work account your administrator may not allow it: install from the file instead (step 4).
 </details>
 
 <details>
 <summary><b>The morning brief doesn't arrive.</b></summary>
 <br>
-Open <b>Scheduled</b> in the left sidebar and check that the task isn't paused. Also check that the Notion connector is still active.
+Open <b>Scheduled tasks</b> in the left sidebar and check that the task isn't paused. Also check that the Notion connector is still active.
 </details>
 
 <details>
 <summary><b>The morning brief comes twice, or talks about a skill or notifications.</b></summary>
 <br>
-In a new conversation, write "Fix my morning brief task". Claude gives you new instructions: paste them in place of the old ones, in the task under <b>Scheduled</b>.
+In a new conversation, write "Fix my morning brief task". Claude gives you new instructions: paste them in place of the old ones, in the task under <b>Scheduled tasks</b>.
 </details>
 
 <details>
@@ -233,7 +233,7 @@ Yes. Claude answers in the language you write in.
 <details>
 <summary><b>How do I update to a new version?</b></summary>
 <br>
-Installed from the marketplace: nothing to do if <b>Sync automatically</b> is on, otherwise click <b>Check for updates</b> on the marketplace. Installed from the file: upload the new file the same way and choose <b>Replace</b>. Installed an earlier version as a skill? Remove it from <b>Plugins</b> (its <b>…</b> menu, <b>Remove</b>), then follow step 4. Your Notion data is untouched in every case.
+Installed from the marketplace: nothing to do if <b>Sync automatically</b> is on, otherwise click <b>Check for updates</b> on the marketplace. Installed from the file: download it again and upload it the same way, choosing <b>Replace</b> if asked. Installed an earlier version as a skill? Remove it from <b>Plugins</b> (its <b>…</b> menu, <b>Remove</b>), then follow step 4. Your Notion data is untouched in every case.
 </details>
 
 ---

@@ -67,7 +67,7 @@ Chaque semaine profite de la précédente : ce que vous avez aimé revient, ce q
 
 ## Avant de commencer
 
-- [ ] Un abonnement **Claude Pro** ou plus, sur [claude.ai](https://claude.ai) ou l'application Claude pour ordinateur. Claude n'utilise les skills qu'avec un abonnement payant.
+- [ ] Un compte **Claude**, sur [claude.ai](https://claude.ai) ou l'application Claude pour ordinateur. L'offre gratuite suffit ; un abonnement Pro ou plus ajoute les mises à jour automatiques et le brief du matin.
 - [ ] Un compte **Notion** gratuit, sur [notion.so](https://www.notion.so)
 - [ ] Environ **10 minutes**
 
@@ -90,18 +90,18 @@ Ouvrez **Paramètres → Capacités** et activez **Exécution de code et créati
 
 ### 4️⃣ Ajoutez Meal Planner à Claude
 
+**Avec un abonnement Pro ou plus** (les nouvelles versions arrivent toutes seules) :
+
 1. Dans **Plug-ins**, cliquez sur **Ajouter**, puis **Ajouter une marketplace**.
 2. Saisissez `RandomFab/claude-plugins` et validez.
 3. **Meal Planner** apparaît dans la liste : cliquez dessus, puis sur **Installer**.
 
-Il fonctionne partout où vous utilisez Claude : conversations, Cowork, tâches planifiées et Claude Code. Pour recevoir les nouvelles versions tout seul, ouvrez la marketplace et activez **Synchroniser automatiquement**.
+Il fonctionne alors dans les conversations, Cowork, les tâches planifiées et Claude Code. Ouvrez la marketplace et activez **Synchroniser automatiquement**.
 
-<details>
-<summary>Impossible d'ajouter une marketplace ? Importez le fichier.</summary>
-<br>
+**Avec l'offre gratuite :** [téléchargez meal-planner.zip](https://github.com/RandomFab/meal-planner/releases/latest/download/meal-planner.zip). Dans **Plug-ins**, cliquez sur **Ajouter**, choisissez d'importer un skill et sélectionnez le fichier. Ne le décompressez pas. Vous referez cette étape à chaque nouvelle version.
 
-[Téléchargez meal-planner.zip](https://github.com/RandomFab/meal-planner/releases/latest/download/meal-planner.zip). Dans **Plug-ins**, cliquez sur **Ajouter**, puis **Importer un plug-in**, et sélectionnez le fichier. Ne le décompressez pas. Utilisez ce lien, pas le bouton vert **Code** de GitHub. Avec un fichier, vous referez cette étape à chaque nouvelle version.
-</details>
+> [!TIP]
+> Utilisez ce lien, pas le bouton vert **Code** de GitHub : celui-là télécharge des fichiers que Claude ne sait pas lire.
 
 ### 5️⃣ Programmez le brief du matin <sup>facultatif</sup>
 
@@ -111,10 +111,10 @@ Dans une nouvelle conversation, écrivez :
 Programme mon brief repas du matin, chaque jour à 10 h.
 ```
 
-Claude vous propose une tâche avec son nom, son horaire et ses instructions : elles sont longues exprès, car la tâche tourne seule, sans la conversation. Vérifiez l'horaire, puis cliquez sur **Planifier**. Vous la retrouvez ensuite dans **Planifié**, dans la barre de gauche, pour changer l'heure ou la mettre en pause.
+Claude vous propose une tâche avec son nom, son horaire et ses instructions : elles sont longues exprès, car la tâche tourne seule, sans la conversation. Vérifiez l'horaire, puis cliquez sur **Planifier**. Vous la retrouvez ensuite dans **Tâches planifiées**, dans la barre de gauche, pour changer l'heure ou la mettre en pause.
 
 > [!NOTE]
-> La tâche tourne même quand votre ordinateur est éteint.
+> La tâche tourne même quand votre ordinateur est éteint. Elle demande un abonnement payant (Pro ou plus).
 
 <details>
 <summary>🎬 <b>Voir toute l'installation (1 min 20)</b></summary>
@@ -197,7 +197,7 @@ Changez ces réglages à tout moment, simplement en le disant à Claude, par exe
 <details>
 <summary><b>Faut-il un abonnement Claude payant ?</b></summary>
 <br>
-Oui, Pro ou plus : Claude n'utilise les skills qu'avec un abonnement payant. Le brief du matin est compris. Notion reste gratuit.
+Non. Avec l'offre gratuite, installez Meal Planner depuis le fichier (étape 4). Un abonnement Pro ou plus ajoute les mises à jour automatiques et le brief du matin (étape 5). Sans le brief, demandez simplement « On mange quoi aujourd'hui ? ».
 </details>
 
 <details>
@@ -209,19 +209,19 @@ Retournez dans <b>Plug-ins → Connecteurs → Notion</b> et vérifiez que la pa
 <details>
 <summary><b>Meal Planner n'apparaît pas après l'ajout de la marketplace.</b></summary>
 <br>
-Ouvrez la marketplace et cliquez sur <b>Rechercher des mises à jour</b>. Vérifiez que <b>Exécution de code et création de fichiers</b> est activé (étape 3). Sur un compte professionnel, votre administrateur n'autorise peut-être pas l'ajout de marketplaces : importez le fichier (étape 4).
+Ouvrez la marketplace et cliquez sur <b>Rechercher des mises à jour</b>. Vérifiez que <b>Exécution de code et création de fichiers</b> est activé (étape 3). Ajouter une marketplace demande un abonnement payant, et sur un compte professionnel votre administrateur ne l'autorise peut-être pas : installez depuis le fichier (étape 4).
 </details>
 
 <details>
 <summary><b>Le brief du matin n'arrive pas.</b></summary>
 <br>
-Ouvrez <b>Planifié</b> dans la barre de gauche et vérifiez que la tâche n'est pas en pause. Vérifiez aussi que le connecteur Notion est toujours actif.
+Ouvrez <b>Tâches planifiées</b> dans la barre de gauche et vérifiez que la tâche n'est pas en pause. Vérifiez aussi que le connecteur Notion est toujours actif.
 </details>
 
 <details>
 <summary><b>Le brief du matin arrive en double, ou parle de skill ou de notifications.</b></summary>
 <br>
-Dans une nouvelle conversation, écrivez « Corrige ma tâche du brief du matin ». Claude vous donne de nouvelles instructions : collez-les à la place des anciennes, dans la tâche sous <b>Planifié</b>.
+Dans une nouvelle conversation, écrivez « Corrige ma tâche du brief du matin ». Claude vous donne de nouvelles instructions : collez-les à la place des anciennes, dans la tâche sous <b>Tâches planifiées</b>.
 </details>
 
 <details>
@@ -233,7 +233,7 @@ Oui. Claude répond dans la langue dans laquelle vous lui écrivez.
 <details>
 <summary><b>Comment passer à une nouvelle version ?</b></summary>
 <br>
-Installé depuis la marketplace : rien à faire si <b>Synchroniser automatiquement</b> est activé, sinon cliquez sur <b>Rechercher des mises à jour</b> sur la marketplace. Installé depuis le fichier : importez le nouveau fichier de la même façon et choisissez <b>Remplacer</b>. Vous aviez installé une version précédente comme skill ? Supprimez-la dans <b>Plug-ins</b> (menu <b>…</b>, <b>Supprimer</b>), puis suivez l'étape 4. Vos données Notion ne bougent jamais.
+Installé depuis la marketplace : rien à faire si <b>Synchroniser automatiquement</b> est activé, sinon cliquez sur <b>Rechercher des mises à jour</b> sur la marketplace. Installé depuis le fichier : téléchargez-le à nouveau et importez-le de la même façon, en choisissant <b>Remplacer</b> si on vous le demande. Vous aviez installé une version précédente comme skill ? Supprimez-la dans <b>Plug-ins</b> (menu <b>…</b>, <b>Supprimer</b>), puis suivez l'étape 4. Vos données Notion ne bougent jamais.
 </details>
 
 ---
