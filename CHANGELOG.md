@@ -5,6 +5,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions: [Sem
 
 ## [Unreleased]
 
+## [1.0.0-beta.4] - 2026-11-22
+
+### Changed
+
+- Install from Claude's new Plugins page: add the `RandomFab/claude-plugins` marketplace, then install Meal Planner. It then works in chats, Cowork, scheduled tasks and Claude Code, and new versions arrive by themselves. The downloadable `meal-planner.zip` is now a plugin, for **Add → Upload plugin**.
+- Meal Planner needs a Claude Pro plan or above: Claude uses skills only on paid plans.
+
 ### Fixed
 
 - The shopping list now covers today and the 7 days after it, so a list made the day before your menu week starts no longer misses the week's last day. Template 2.0 users: paste the new Need 7d and For dishes formulas from `docs/developers.md`.
