@@ -100,10 +100,10 @@ Open **Settings → Capabilities** and switch on **Create and edit files**. Clau
 In a new conversation, write:
 
 ```text
-Every day at 10 am, use the meal-planner skill to give me today's meal brief. Reply with the brief only.
+Schedule my morning meal brief, every day at 10 am.
 ```
 
-Claude proposes a task with its name, time and instructions. Check it, then click **Schedule**. You'll find it later under **Scheduled** in the left sidebar, to change the time or pause it.
+Claude proposes a task with its name, time and instructions: they are long on purpose, because the task runs on its own, without the conversation. Check the time, then click **Schedule**. You'll find it later under **Scheduled** in the left sidebar, to change the time or pause it.
 
 > [!NOTE]
 > The task runs even when your computer is off. It needs a paid plan (Pro or above).
@@ -213,7 +213,7 @@ Open <b>Scheduled</b> in the left sidebar and check that the task isn't paused. 
 <details>
 <summary><b>The morning brief comes twice, or talks about a skill or notifications.</b></summary>
 <br>
-Open the task in <b>Scheduled</b> and replace its instructions with the text of step 5. Also check that the meal-planner skill is still on in <b>Settings → Capabilities</b>.
+In a new conversation, write "Fix my morning brief task". Claude gives you new instructions: paste them in place of the old ones, in the task under <b>Scheduled</b>.
 </details>
 
 <details>

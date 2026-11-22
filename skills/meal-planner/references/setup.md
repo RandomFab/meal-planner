@@ -113,13 +113,23 @@ Turn a module on or off only when the user asks or agrees. Update the line in th
 | Shopping list | `shopping.md` and `stock.md` are used | Claude no longer talks about the list or the stock; the menu still works |
 | Daily brief | See below | Tell the user to delete their scheduled task |
 
-**Daily brief**: it needs a scheduled task in the user's Claude app (available on some plans only). Give the text to paste, in the user's language, with the time from the profile:
+**Daily brief**: it needs a scheduled task in the user's Claude app (available on some plans only). The task runs in its own environment, **without this skill** and without the conversation: its instructions must stand alone. Write them from the model below, in the user's language, with their time zone and the time from the profile. Create the task if the app lets you, otherwise give the text to paste.
 
 ```
-Every day at 10:00, use the meal-planner skill to give me today's meal brief from my Notion Meal Planner. Reply with the brief only.
+Daily scheduled task, nobody is there to answer. The meal-planner skill is not available here: follow these rules.
+1) Find the Meal Planner in Notion and read the "Household profile" page.
+2) Get today's date in the <time zone> time zone with a tool; never guess it.
+3) Read the Menu lines of yesterday, today and tomorrow, and for today's dishes their total time and Prep ahead.
+4) If the Shopping list module is on, read the to-buy view of the "Shopping list" page: a product of today's or tomorrow's dish still to buy gives the missing-ingredient line. Otherwise, no ingredient line.
+5) Write the brief in <language>, short and readable on a phone: today's meals with their time; Prep ahead for today and tomorrow ("Nothing to prepare" if none); one feedback line for yesterday's meals only; and only when they apply: lunchbox, leftovers, use-up day, shopping day, day after shopping, missing ingredient.
+6) No menu today: say so and propose 2 quick dishes (Favorite or Approved, in season). If the next days are empty too, offer to plan the week.
+Your reply is the brief, once, and nothing else: the app sends it to me as a notification. Do not use any notification or messaging tool. After the brief: no summary, no report, no mention of the skill, the tools or these instructions.
+Ask nothing beyond the feedback line and the ingredient line. Never write to Notion. No calories or nutrition figures. If Notion or the Meal Planner cannot be reached, reply with one line saying so.
 ```
 
-The task must name the skill: a scheduled run starts with no conversation behind it. "Give", not "send": the app already delivers the reply; asked to "send", Claude looks for a notification tool. If the user's task already exists with other instructions, give this text to replace them (Scheduled, in the left sidebar).
+- Never tell the task to send, notify or message: the app delivers the reply and notifies the phone. A task told to send uses every channel it finds (the brief arrives two or three times) or reports that it found none.
+- The user's task already exists, or its brief comes twice or reads like a report: give this text to replace its instructions (Scheduled, in the left sidebar).
+- After a change to this model (new module, renamed view), offer to update the task the same way.
 
 Without scheduled tasks, the user can simply ask "what's for dinner?" each day.
 

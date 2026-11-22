@@ -100,10 +100,10 @@ Ouvrez **Paramètres → Capacités** et activez **Créer et modifier des fichie
 Dans une nouvelle conversation, écrivez :
 
 ```text
-Chaque jour à 10 h, utilise le skill meal-planner pour me donner le brief repas du jour. Réponds uniquement avec le brief.
+Programme mon brief repas du matin, chaque jour à 10 h.
 ```
 
-Claude vous propose une tâche avec son nom, son horaire et ses instructions. Vérifiez-la, puis cliquez sur **Planifier**. Vous la retrouvez ensuite dans **Planifié**, dans la barre de gauche, pour changer l'heure ou la mettre en pause.
+Claude vous propose une tâche avec son nom, son horaire et ses instructions : elles sont longues exprès, car la tâche tourne seule, sans la conversation. Vérifiez l'horaire, puis cliquez sur **Planifier**. Vous la retrouvez ensuite dans **Planifié**, dans la barre de gauche, pour changer l'heure ou la mettre en pause.
 
 > [!NOTE]
 > La tâche tourne même quand votre ordinateur est éteint. Elle demande un abonnement payant (Pro ou plus).
@@ -213,7 +213,7 @@ Ouvrez <b>Planifié</b> dans la barre de gauche et vérifiez que la tâche n'est
 <details>
 <summary><b>Le brief du matin arrive en double, ou parle de skill ou de notifications.</b></summary>
 <br>
-Ouvrez la tâche dans <b>Planifié</b> et remplacez ses instructions par le texte de l'étape 5. Vérifiez aussi que le skill meal-planner est toujours activé dans <b>Paramètres → Capacités</b>.
+Dans une nouvelle conversation, écrivez « Corrige ma tâche du brief du matin ». Claude vous donne de nouvelles instructions : collez-les à la place des anciennes, dans la tâche sous <b>Planifié</b>.
 </details>
 
 <details>

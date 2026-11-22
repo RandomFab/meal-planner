@@ -10,7 +10,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions: [Sem
 - The shopping list now covers today and the 7 days after it, so a list made the day before your menu week starts no longer misses the week's last day. Template 2.0 users: paste the new Need 7d and For dishes formulas from `docs/developers.md`.
 - When a product you expected is not on the list, Claude now tells you why (meal too far ahead, enough at home according to the last count…) instead of saying it can't check.
 - When Claude changes a product (frozen to fresh, another pack size), it asks how many are at home instead of keeping the old count.
-- The morning brief arrives once, with no recap and no talk of skills, tools or notifications. Replace your scheduled task's instructions with the new text of step 5 in the README.
+- The morning brief arrives once, with no recap and no talk of skills, tools or notifications. The scheduled task runs without the skill, so Claude now writes it with all the rules it needs. Already have one? Write "Fix my morning brief task" and paste the new instructions into it.
 
 ## [1.0.0-beta.3] - 2026-11-15
 

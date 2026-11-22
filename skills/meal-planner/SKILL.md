@@ -21,7 +21,7 @@ Always reply in the user's language. Text you write for the user (menus, lists, 
 
 | The user… | Read |
 | --- | --- |
-| wants to set up, change a setting, turn a module on or off | `references/setup.md` |
+| wants to set up, change a setting, turn a module on or off, schedule or fix the morning brief task | `references/setup.md` |
 | sends a recipe (photo, scan, link, dictated or typed text), lists dishes they cook, asks to add or fix a dish | `references/recipe.md` |
 | asks for the weekly menu, or it is the planning day | `references/plan-week.md` |
 | asks for the shopping list, adds an item to it | `references/shopping.md` |
