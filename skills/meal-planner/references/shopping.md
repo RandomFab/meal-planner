@@ -12,7 +12,7 @@ For each product that is not a Staple:
 
 ```
 need    = Σ Quantity (Dish ingredients) × Servings (Menu)
-          over Menu lines with Status Planned, from today to today + 6
+          over Menu lines with Status Planned, from today to today + 7
 stock   = see stock.md section 1
 to buy  = need − stock, rounded up to whole packs
 ```
@@ -24,7 +24,7 @@ to buy  = need − stock, rounded up to whole packs
 
 So, to change the list, change what it is computed from: the menu (`feedback.md`), the quantities of a dish (`recipe.md` section 7), the stock (`stock.md`), or Add to list. Never write the formula properties (`notion-schema.md`).
 
-The list covers 7 days from today. Meals further ahead appear as the days come. If the user asks for a longer stretch, say so; the window is the `6` in the Need 7d formula, which they can change in Notion.
+The list covers today and the 7 days after it, like the Menu view "Next 7 days": a list made the day before the menu week starts still counts the week's last day. Meals further ahead appear as the days come. If the user asks for a longer stretch, say so; the window is the `7` in the Need 7d and For dishes formulas, which they can change in Notion.
 
 ## 2. Dishes without ingredients
 
@@ -51,6 +51,14 @@ Quantities and ✓ buttons: Shopping list page in Notion.
 3. Then at most three lines: dishes not counted (section 2), "Running low on any staple?", a product from "Never on the list" that a dish needs.
 
 No prices, no budget.
+
+**A product is missing from the list** (the user expected it, or a planned dish needs it): never answer that you cannot check. For that product only, find the reason from what you can read, and say it in one line:
+
+- the meal is after today + 7: "The butternut for Sunday 29 will appear on Monday."
+- the meal is not Planned (Cooked, Skipped, Postponed): say so;
+- the dish has no ingredient line for it, or Ingredients filled = no: section 2;
+- it is a Staple: it is only on the list with Add to list (section 5);
+- the stock covers the need: compute it (`stock.md` section 1) and give it, with the date of the count: "Notion counts 4 breaded fish at home (count of 15 Nov). Still true?" If the user corrects it, count it (`stock.md` section 2).
 
 ## 4. Adding an item
 
