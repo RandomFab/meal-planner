@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions: [Sem
 
 ## [Unreleased]
 
+## [1.0.0-beta.5] - 2026-11-22
+
+### Fixed
+
+- Meal Planner works on the free plan again: download `meal-planner.zip` and upload it as a skill. Beta 4 wrongly said a paid plan was needed. A Pro plan or above adds the marketplace install, with automatic updates, and the morning brief.
+- `meal-planner.zip` is the skill again, as the free plan needs. The plugin file for **Add → Upload plugin** is now `meal-planner-plugin.zip`.
+- The morning brief task uses Meal Planner when it is installed from the marketplace, and its own rules otherwise.
+
 ## [1.0.0-beta.4] - 2026-11-22
 
 ### Changed
