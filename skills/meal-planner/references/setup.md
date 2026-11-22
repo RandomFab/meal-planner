@@ -113,10 +113,10 @@ Turn a module on or off only when the user asks or agrees. Update the line in th
 | Shopping list | `shopping.md` and `stock.md` are used | Claude no longer talks about the list or the stock; the menu still works |
 | Daily brief | See below | Tell the user to delete their scheduled task |
 
-**Daily brief**: it needs a scheduled task in the user's Claude app (available on some plans only). The task runs in its own environment, **without this skill** and without the conversation: its instructions must stand alone. Write them from the model below, in the user's language, with their time zone and the time from the profile. Create the task if the app lets you, otherwise give the text to paste.
+**Daily brief**: it needs a scheduled task in the user's Claude app (available on some plans only). The task runs in its own environment, without the conversation, and may not have this skill (it has it only when installed as a plugin from the marketplace): its instructions must stand alone. Write them from the model below, in the user's language, with their time zone and the time from the profile. Create the task if the app lets you, otherwise give the text to paste.
 
 ```
-Daily scheduled task, nobody is there to answer. The meal-planner skill is not available here: follow these rules.
+Daily scheduled task, nobody is there to answer. If the meal-planner skill is available, follow its daily brief, scheduled run. Otherwise, follow these rules.
 1) Find the Meal Planner in Notion and read the "Household profile" page.
 2) Get today's date in the <time zone> time zone with a tool; never guess it.
 3) Read the Menu lines of yesterday, today and tomorrow, and for today's dishes their total time and Prep ahead.
