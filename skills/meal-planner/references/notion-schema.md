@@ -8,7 +8,7 @@ Contents: 1. Finding the workspace · 2. Household profile page · 3. Databases 
 
 The user's workspace is a copy of the Meal Planner template: a root page "Meal Planner" containing three pages (Start here, Household profile, Shopping list) and four databases (Menu, Dishes, Products, Dish ingredients).
 
-1. If the Notion tools are not available, tell the user to connect Notion (Settings → Connectors → Notion) and to give it access to their Meal Planner page. Stop.
+1. If the Notion tools are not available, tell the user to connect Notion (Plugins in the left sidebar → Connectors → Notion) and to give it access to their Meal Planner page. Stop.
 2. Search Notion for the page "Household profile". Open it and read the block "For Claude, do not edit" at the bottom.
 3. If that block holds the four database addresses and the "To buy" view address, use them. Fetch one; if it fails, go to step 4.
 4. Otherwise, search for "Meal Planner" and open the root page. It lists the four databases. Note the data source address (`collection://…`) of each one, and the view address (`view://…`) of the "To buy" view on the Shopping list page.

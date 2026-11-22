@@ -67,7 +67,7 @@ Chaque semaine profite de la précédente : ce que vous avez aimé revient, ce q
 
 ## Avant de commencer
 
-- [ ] Un compte **Claude**, sur [claude.ai](https://claude.ai) ou l'application Claude pour ordinateur. L'offre gratuite suffit ; le brief automatique du matin demande un abonnement payant (Pro ou plus).
+- [ ] Un abonnement **Claude Pro** ou plus, sur [claude.ai](https://claude.ai) ou l'application Claude pour ordinateur. Claude n'utilise les skills qu'avec un abonnement payant.
 - [ ] Un compte **Notion** gratuit, sur [notion.so](https://www.notion.so)
 - [ ] Environ **10 minutes**
 
@@ -79,21 +79,29 @@ Ouvrez le [modèle Meal Planner](https://garrulous-amount-bc1.notion.site/Meal-P
 
 ### 2️⃣ Connectez Notion à Claude
 
-Dans Claude, ouvrez **Paramètres → Connecteurs**, trouvez **Notion** et cliquez sur **Connecter**. Quand Notion demande quelles pages Claude peut utiliser, choisissez **Meal Planner**.
+Dans Claude, ouvrez **Plug-ins** dans la barre de gauche, puis l'onglet **Connecteurs**. Trouvez **Notion** et cliquez sur **Connecter**. Quand Notion demande quelles pages Claude peut utiliser, choisissez **Meal Planner**.
 
 > [!NOTE]
 > Notion affiche un écran qui vous demande d'autoriser l'accès. C'est normal : Claude pourra lire et mettre à jour vos pages Meal Planner, et rien d'autre.
 
-### 3️⃣ Activez la création de fichiers
+### 3️⃣ Activez l'exécution de code
 
-Ouvrez **Paramètres → Capacités** et activez **Créer et modifier des fichiers**. Claude en a besoin pour utiliser les compétences.
+Ouvrez **Paramètres → Capacités** et activez **Exécution de code et création de fichiers**. Claude en a besoin pour utiliser les skills.
 
 ### 4️⃣ Ajoutez Meal Planner à Claude
 
-[Téléchargez meal-planner.zip](https://github.com/RandomFab/meal-planner/releases/latest/download/meal-planner.zip). Puis ouvrez **Personnaliser → Compétences**, cliquez sur **+**, choisissez **Télécharger une compétence** et sélectionnez le fichier. Ne le décompressez pas.
+1. Dans **Plug-ins**, cliquez sur **Ajouter**, puis **Ajouter une marketplace**.
+2. Saisissez `RandomFab/claude-plugins` et validez.
+3. **Meal Planner** apparaît dans la liste : cliquez dessus, puis sur **Installer**.
 
-> [!TIP]
-> Utilisez ce lien, pas le bouton vert **Code** de GitHub : celui-là télécharge des fichiers que Claude ne sait pas lire.
+Il fonctionne partout où vous utilisez Claude : conversations, Cowork, tâches planifiées et Claude Code. Pour recevoir les nouvelles versions tout seul, ouvrez la marketplace et activez **Synchroniser automatiquement**.
+
+<details>
+<summary>Impossible d'ajouter une marketplace ? Importez le fichier.</summary>
+<br>
+
+[Téléchargez meal-planner.zip](https://github.com/RandomFab/meal-planner/releases/latest/download/meal-planner.zip). Dans **Plug-ins**, cliquez sur **Ajouter**, puis **Importer un plug-in**, et sélectionnez le fichier. Ne le décompressez pas. Utilisez ce lien, pas le bouton vert **Code** de GitHub. Avec un fichier, vous referez cette étape à chaque nouvelle version.
+</details>
 
 ### 5️⃣ Programmez le brief du matin <sup>facultatif</sup>
 
@@ -106,7 +114,7 @@ Programme mon brief repas du matin, chaque jour à 10 h.
 Claude vous propose une tâche avec son nom, son horaire et ses instructions : elles sont longues exprès, car la tâche tourne seule, sans la conversation. Vérifiez l'horaire, puis cliquez sur **Planifier**. Vous la retrouvez ensuite dans **Planifié**, dans la barre de gauche, pour changer l'heure ou la mettre en pause.
 
 > [!NOTE]
-> La tâche tourne même quand votre ordinateur est éteint. Elle demande un abonnement payant (Pro ou plus).
+> La tâche tourne même quand votre ordinateur est éteint.
 
 <details>
 <summary>🎬 <b>Voir toute l'installation (1 min 20)</b></summary>
@@ -189,19 +197,19 @@ Changez ces réglages à tout moment, simplement en le disant à Claude, par exe
 <details>
 <summary><b>Faut-il un abonnement Claude payant ?</b></summary>
 <br>
-Non, Meal Planner fonctionne avec l'offre gratuite. Seul le brief automatique du matin (étape 5) demande un abonnement payant. Sans lui, demandez simplement « On mange quoi aujourd'hui ? ».
+Oui, Pro ou plus : Claude n'utilise les skills qu'avec un abonnement payant. Le brief du matin est compris. Notion reste gratuit.
 </details>
 
 <details>
 <summary><b>Claude dit qu'il ne trouve pas mes pages Notion.</b></summary>
 <br>
-Retournez dans <b>Paramètres → Connecteurs → Notion</b> et vérifiez que la page <b>Meal Planner</b> est bien partagée avec Claude.
+Retournez dans <b>Plug-ins → Connecteurs → Notion</b> et vérifiez que la page <b>Meal Planner</b> est bien partagée avec Claude.
 </details>
 
 <details>
-<summary><b>« Télécharger une compétence » n'apparaît pas.</b></summary>
+<summary><b>Meal Planner n'apparaît pas après l'ajout de la marketplace.</b></summary>
 <br>
-Vérifiez que <b>Créer et modifier des fichiers</b> est activé (étape 3). Sur un compte professionnel, votre administrateur a peut-être désactivé les compétences.
+Ouvrez la marketplace et cliquez sur <b>Rechercher des mises à jour</b>. Vérifiez que <b>Exécution de code et création de fichiers</b> est activé (étape 3). Sur un compte professionnel, votre administrateur n'autorise peut-être pas l'ajout de marketplaces : importez le fichier (étape 4).
 </details>
 
 <details>
@@ -225,7 +233,7 @@ Oui. Claude répond dans la langue dans laquelle vous lui écrivez.
 <details>
 <summary><b>Comment passer à une nouvelle version ?</b></summary>
 <br>
-Téléchargez à nouveau le fichier et importez-le dans <b>Personnaliser → Compétences</b>. Il remplace l'ancien. Vos données Notion ne bougent pas.
+Installé depuis la marketplace : rien à faire si <b>Synchroniser automatiquement</b> est activé, sinon cliquez sur <b>Rechercher des mises à jour</b> sur la marketplace. Installé depuis le fichier : importez le nouveau fichier de la même façon et choisissez <b>Remplacer</b>. Vous aviez installé une version précédente comme skill ? Supprimez-la dans <b>Plug-ins</b> (menu <b>…</b>, <b>Supprimer</b>), puis suivez l'étape 4. Vos données Notion ne bougent jamais.
 </details>
 
 ---

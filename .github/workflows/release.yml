@@ -20,17 +20,13 @@ jobs:
             echo "Tag $GITHUB_REF_NAME does not match plugin.json version $version"; exit 1
           fi
 
-      - name: Build one ZIP per skill
+      - name: Build the plugin ZIP
+        # For Plugins > Add > Upload plugin: one .claude-plugin/plugin.json and the skills.
         run: |
           mkdir -p dist
-          for dir in skills/*/; do
-            name=$(basename "$dir")
-            tmp=$(mktemp -d)
-            cp -r "$dir" "$tmp/$name"
-            cp LICENSE "$tmp/$name/LICENSE"
-            (cd "$tmp" && zip -qr "$GITHUB_WORKSPACE/dist/$name.zip" "$name")
-          done
-          ls -l dist
+          name=$(jq -r .name .claude-plugin/plugin.json)
+          zip -qr "dist/$name.zip" .claude-plugin skills LICENSE
+          unzip -l "dist/$name.zip"
 
       - name: Release notes from the CHANGELOG
         run: |

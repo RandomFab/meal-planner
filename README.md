@@ -67,7 +67,7 @@ Each week builds on the last: what you loved comes back, what you didn't shows u
 
 ## Before you start
 
-- [ ] A **Claude** account, on [claude.ai](https://claude.ai) or the Claude desktop app. The free plan is enough; the automatic morning brief needs a paid plan (Pro or above).
+- [ ] A **Claude Pro** plan or above, on [claude.ai](https://claude.ai) or the Claude desktop app. Claude uses skills only on paid plans.
 - [ ] A free **Notion** account, on [notion.so](https://www.notion.so)
 - [ ] About **10 minutes**
 
@@ -79,21 +79,29 @@ Open the [Meal Planner template](https://garrulous-amount-bc1.notion.site/Meal-P
 
 ### 2️⃣ Connect Notion to Claude
 
-In Claude, open **Settings → Connectors**, find **Notion** and click **Connect**. When Notion asks which pages Claude may use, select **Meal Planner**.
+In Claude, open **Plugins** in the left sidebar, then the **Connectors** tab. Find **Notion** and click **Connect**. When Notion asks which pages Claude may use, select **Meal Planner**.
 
 > [!NOTE]
 > Notion shows a screen asking you to allow access. This is normal: it lets Claude read and update your Meal Planner pages, and nothing else.
 
-### 3️⃣ Turn on file creation
+### 3️⃣ Turn on code execution
 
-Open **Settings → Capabilities** and switch on **Create and edit files**. Claude needs it to use skills.
+Open **Settings → Capabilities** and switch on **Code execution and file creation**. Claude needs it to use skills.
 
 ### 4️⃣ Add Meal Planner to Claude
 
-[Download meal-planner.zip](https://github.com/RandomFab/meal-planner/releases/latest/download/meal-planner.zip). Then open **Customize → Skills**, click **+**, choose **Upload a skill** and select the file. Don't unzip it.
+1. In **Plugins**, click **Add**, then **Add marketplace**.
+2. Enter `RandomFab/claude-plugins` and confirm.
+3. **Meal Planner** now appears in the list: click it, then **Install**.
 
-> [!TIP]
-> Use this link, not GitHub's green **Code** button: that one downloads files Claude can't read.
+It works everywhere you use Claude: chats, Cowork, scheduled tasks and Claude Code. To get new versions by themselves, open the marketplace and turn on **Sync automatically**.
+
+<details>
+<summary>Can't add a marketplace? Upload the file instead.</summary>
+<br>
+
+[Download meal-planner.zip](https://github.com/RandomFab/meal-planner/releases/latest/download/meal-planner.zip). In **Plugins**, click **Add**, then **Upload plugin**, and select the file. Don't unzip it. Use this link, not GitHub's green **Code** button. With a file, you'll repeat this step for each new version.
+</details>
 
 ### 5️⃣ Schedule the morning brief <sup>optional</sup>
 
@@ -106,7 +114,7 @@ Schedule my morning meal brief, every day at 10 am.
 Claude proposes a task with its name, time and instructions: they are long on purpose, because the task runs on its own, without the conversation. Check the time, then click **Schedule**. You'll find it later under **Scheduled** in the left sidebar, to change the time or pause it.
 
 > [!NOTE]
-> The task runs even when your computer is off. It needs a paid plan (Pro or above).
+> The task runs even when your computer is off.
 
 <details>
 <summary>🎬 <b>Watch the whole install (1 min 20)</b></summary>
@@ -189,19 +197,19 @@ Change these at any time by just telling Claude, for example "We are now 3 peopl
 <details>
 <summary><b>Do I need a paid Claude plan?</b></summary>
 <br>
-No, Meal Planner works on the free plan. Only the automatic morning brief (step 5) needs a paid plan. Without it, just ask "What's for dinner today?".
+Yes, Pro or above: Claude uses skills only on paid plans. The morning brief is included. Notion stays free.
 </details>
 
 <details>
 <summary><b>Claude says it can't find my Notion pages.</b></summary>
 <br>
-Go back to <b>Settings → Connectors → Notion</b> and check that the <b>Meal Planner</b> page is shared with Claude.
+Go back to <b>Plugins → Connectors → Notion</b> and check that the <b>Meal Planner</b> page is shared with Claude.
 </details>
 
 <details>
-<summary><b>"Upload a skill" is missing.</b></summary>
+<summary><b>Meal Planner doesn't appear after adding the marketplace.</b></summary>
 <br>
-Check that <b>Create and edit files</b> is on (step 3). On a work account, your administrator may have turned skills off.
+Open the marketplace and click <b>Check for updates</b>. Check that <b>Code execution and file creation</b> is on (step 3). On a work account, your administrator may not allow adding marketplaces: upload the file instead (step 4).
 </details>
 
 <details>
@@ -225,7 +233,7 @@ Yes. Claude answers in the language you write in.
 <details>
 <summary><b>How do I update to a new version?</b></summary>
 <br>
-Download the file again and upload it in <b>Customize → Skills</b>. It replaces the old one. Your Notion data is untouched.
+Installed from the marketplace: nothing to do if <b>Sync automatically</b> is on, otherwise click <b>Check for updates</b> on the marketplace. Installed from the file: upload the new file the same way and choose <b>Replace</b>. Installed an earlier version as a skill? Remove it from <b>Plugins</b> (its <b>…</b> menu, <b>Remove</b>), then follow step 4. Your Notion data is untouched in every case.
 </details>
 
 ---
