@@ -100,7 +100,7 @@ Ouvrez **Paramètres → Capacités** et activez **Créer et modifier des fichie
 Dans une nouvelle conversation, écrivez :
 
 ```text
-Chaque jour à 10 h, envoie-moi le brief repas du jour.
+Chaque jour à 10 h, utilise le skill meal-planner pour me donner le brief repas du jour. Réponds uniquement avec le brief.
 ```
 
 Claude vous propose une tâche avec son nom, son horaire et ses instructions. Vérifiez-la, puis cliquez sur **Planifier**. Vous la retrouvez ensuite dans **Planifié**, dans la barre de gauche, pour changer l'heure ou la mettre en pause.
@@ -208,6 +208,12 @@ Vérifiez que <b>Créer et modifier des fichiers</b> est activé (étape 3). Sur
 <summary><b>Le brief du matin n'arrive pas.</b></summary>
 <br>
 Ouvrez <b>Planifié</b> dans la barre de gauche et vérifiez que la tâche n'est pas en pause. Vérifiez aussi que le connecteur Notion est toujours actif.
+</details>
+
+<details>
+<summary><b>Le brief du matin arrive en double, ou parle de skill ou de notifications.</b></summary>
+<br>
+Ouvrez la tâche dans <b>Planifié</b> et remplacez ses instructions par le texte de l'étape 5. Vérifiez aussi que le skill meal-planner est toujours activé dans <b>Paramètres → Capacités</b>.
 </details>
 
 <details>

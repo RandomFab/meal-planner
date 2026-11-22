@@ -53,12 +53,14 @@ Add, only when they apply:
 
 ## 5. Scheduled run
 
-- Send the message with the tool that notifies the user, so it reaches their phone.
+- **Your reply is the brief, once.** The Claude app delivers the reply of a scheduled task and notifies the user's phone. Do not look for a notification tool, and never say whether a notification was sent.
+- **Nothing after the brief.** No summary of it, no report of what you read, did or did not do, no mention of the skill, the task, its instructions, tools, files or the environment. The user reads a meal brief, not a log.
 - Nobody is there to answer: ask nothing beyond the feedback line and the missing-ingredient line.
-- Notion or the Meal Planner cannot be reached: send one line saying so, nothing else.
+- Notion or the Meal Planner cannot be reached: reply with one line saying so, nothing else.
 
 ## 6. Never
 
 - Never write to Notion, change a meal, or tick anything.
 - Never show calories or nutrition figures.
 - Never add a second message in the evening.
+- Never repeat the brief, or follow it with a recap of it.

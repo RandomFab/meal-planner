@@ -113,11 +113,13 @@ Turn a module on or off only when the user asks or agrees. Update the line in th
 | Shopping list | `shopping.md` and `stock.md` are used | Claude no longer talks about the list or the stock; the menu still works |
 | Daily brief | See below | Tell the user to delete their scheduled task |
 
-**Daily brief**: it needs a scheduled task in the user's Claude app (available on some plans only). Give the text to paste, with the time from the profile:
+**Daily brief**: it needs a scheduled task in the user's Claude app (available on some plans only). Give the text to paste, in the user's language, with the time from the profile:
 
 ```
-Every day at 10:00: give me my daily meal brief from my Meal Planner.
+Every day at 10:00, use the meal-planner skill to give me today's meal brief from my Notion Meal Planner. Reply with the brief only.
 ```
+
+The task must name the skill: a scheduled run starts with no conversation behind it. "Give", not "send": the app already delivers the reply; asked to "send", Claude looks for a notification tool. If the user's task already exists with other instructions, give this text to replace them (Scheduled, in the left sidebar).
 
 Without scheduled tasks, the user can simply ask "what's for dinner?" each day.
 

@@ -100,7 +100,7 @@ Open **Settings → Capabilities** and switch on **Create and edit files**. Clau
 In a new conversation, write:
 
 ```text
-Every day at 10 am, send me today's meal brief.
+Every day at 10 am, use the meal-planner skill to give me today's meal brief. Reply with the brief only.
 ```
 
 Claude proposes a task with its name, time and instructions. Check it, then click **Schedule**. You'll find it later under **Scheduled** in the left sidebar, to change the time or pause it.
@@ -208,6 +208,12 @@ Check that <b>Create and edit files</b> is on (step 3). On a work account, your 
 <summary><b>The morning brief doesn't arrive.</b></summary>
 <br>
 Open <b>Scheduled</b> in the left sidebar and check that the task isn't paused. Also check that the Notion connector is still active.
+</details>
+
+<details>
+<summary><b>The morning brief comes twice, or talks about a skill or notifications.</b></summary>
+<br>
+Open the task in <b>Scheduled</b> and replace its instructions with the text of step 5. Also check that the meal-planner skill is still on in <b>Settings → Capabilities</b>.
 </details>
 
 <details>
